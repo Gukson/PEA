@@ -11,7 +11,7 @@
 using namespace std;
 class Node {
 public:
-    int get_value() const;
+    int get_value();
     vector<pair<Node*,int>> getVectorOfNodes();
     void addNodeToVector(Node *n, int v);
 

@@ -4,8 +4,6 @@ project(PEA)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(PEA main.cpp
-        TSP/random/RandomTSP.cpp
-        TSP/random/RandomTSP.h
         Tree/Node/Node.cpp
         Tree/Node/Node.h
         TSP/bruteForce/BruteForce.cpp
@@ -15,4 +13,6 @@ add_executable(PEA main.cpp
         data/data_loader/DataLoader.h
         data/data_loader/DataLoader.h
         TSP/NearestNeighbour/NearestNeighbour.cpp
-        TSP/NearestNeighbour/NearestNeighbour.h)
+        TSP/NearestNeighbour/NearestNeighbour.h
+        TSP/RandomNeighbour/RandomNeighbour.cpp
+        TSP/RandomNeighbour/RandomNeighbour.h)

@@ -4,7 +4,7 @@
 
 #include "Node.h"
 
-int Node::get_value() const {
+int Node::get_value(){
     return value;
 }
 

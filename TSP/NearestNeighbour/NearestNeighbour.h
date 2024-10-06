@@ -16,7 +16,7 @@ class NearestNeighbour {
 public:
     int result = INT_MAX;
     vector<int> best_way = vector<int>();
-    int nearestNeighbour(Node start, int sum, vector<int> visited, int count, int size, int startNumb);
+    void nearestNeighbour(Node start, int size);
     void findBestWay(vector<Node> nodes);
 };
 

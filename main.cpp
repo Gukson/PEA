@@ -19,8 +19,8 @@ int main() {
         cout << endl;
     }
 
-    BruteForce b = BruteForce();
-    b.findBestWay(nodes);
+//    BruteForce b = BruteForce();
+//    b.findBestWay(nodes);
 
     NearestNeighbour n = NearestNeighbour();
     n.findBestWay(nodes);

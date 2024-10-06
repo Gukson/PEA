@@ -118,17 +118,6 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "TSP/random/RandomTSP.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "TSP/random/RandomTSP.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "Tree/Node/Node.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -168,6 +157,17 @@
 		{
 			"backtrace" : 1,
 			"path" : "TSP/NearestNeighbour/NearestNeighbour.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "TSP/RandomNeighbour/RandomNeighbour.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "TSP/RandomNeighbour/RandomNeighbour.h",
 			"sourceGroupIndex" : 1
 		}
 	],
