@@ -79,6 +79,12 @@ build CMakeFiles/PEA.dir/data/data_loader/DataLoader.cpp.o: CXX_COMPILER__PEA_un
   OBJECT_DIR = CMakeFiles/PEA.dir
   OBJECT_FILE_DIR = CMakeFiles/PEA.dir/data/data_loader
 
+build CMakeFiles/PEA.dir/TSP/NearestNeighbour/NearestNeighbour.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/TSP/NearestNeighbour/NearestNeighbour.cpp || cmake_object_order_depends_target_PEA
+  DEP_FILE = CMakeFiles/PEA.dir/TSP/NearestNeighbour/NearestNeighbour.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PEA.dir
+  OBJECT_FILE_DIR = CMakeFiles/PEA.dir/TSP/NearestNeighbour
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target PEA
@@ -87,7 +93,7 @@ build CMakeFiles/PEA.dir/data/data_loader/DataLoader.cpp.o: CXX_COMPILER__PEA_un
 #############################################
 # Link the executable PEA
 
-build PEA: CXX_EXECUTABLE_LINKER__PEA_Debug CMakeFiles/PEA.dir/main.cpp.o CMakeFiles/PEA.dir/TSP/random/RandomTSP.cpp.o CMakeFiles/PEA.dir/Tree/Node/Node.cpp.o CMakeFiles/PEA.dir/TSP/bruteForce/BruteForce.cpp.o CMakeFiles/PEA.dir/data/data_loader/DataLoader.cpp.o
+build PEA: CXX_EXECUTABLE_LINKER__PEA_Debug CMakeFiles/PEA.dir/main.cpp.o CMakeFiles/PEA.dir/TSP/random/RandomTSP.cpp.o CMakeFiles/PEA.dir/Tree/Node/Node.cpp.o CMakeFiles/PEA.dir/TSP/bruteForce/BruteForce.cpp.o CMakeFiles/PEA.dir/data/data_loader/DataLoader.cpp.o CMakeFiles/PEA.dir/TSP/NearestNeighbour/NearestNeighbour.cpp.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk
   OBJECT_DIR = CMakeFiles/PEA.dir
   POST_BUILD = :

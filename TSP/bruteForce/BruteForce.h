@@ -14,8 +14,9 @@ using namespace std;
 class BruteForce {
 public:
     int result = INT_MAX;
-    vector<int> best_wat = vector<int>();
-    int bruteForce(Node start,int sum, vector<int> visited,int count, int size);
+    vector<int> best_way = vector<int>();
+    int bruteForce(Node start,int sum, vector<int> visited,int count, int size,int startNumb);
+    void findBestWay(vector<Node> nodes);
 };
 
 

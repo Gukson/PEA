@@ -1,12 +1,15 @@
 //
-// Created by Kuba on 04/10/2024.
+// Created by Kuba on 06/10/2024.
 //
 
-#include "BruteForce.h"
+#include "NearestNeighbour.h"
 
-int BruteForce::bruteForce(Node start,int sum, vector<int> visited,int count, int size, int startNumb) {
+int NearestNeighbour::nearestNeighbour(Node start, int sum, vector<int> visited, int count, int size, int startNumb) {
     if(count == size && visited.size() == size){
-
+//        for(int y = 0; y < visited.size(); y++) {
+//            cout << visited[y] << " ";
+//        }
+        cout << endl;
         for(pair<Node*,int> p : start.getVectorOfNodes()){
             if(p.first -> get_value() == startNumb){
                 result = min(sum + p.second, result);
@@ -19,28 +22,31 @@ int BruteForce::bruteForce(Node start,int sum, vector<int> visited,int count, in
     }
 
     int min_cost = INT_MAX;
-
-    for(pair<Node*,int> p : start.getVectorOfNodes()){
+    //różnica w tej metodzie jest taka, że sortujemy wektor od najbliższego wierzchołka do najdalszej
+    vector<pair<Node*, int>> nodes = start.getVectorOfNodes();
+    std::sort(nodes.begin(), nodes.end(), [](std::pair<Node*, int>& a, std::pair<Node*, int>& b) {
+        return a.second < b.second;  // Bezpośrednie porównanie int
+    });
+    for(pair<Node*,int> p : nodes){
         auto it = find(visited.begin(), visited.end(), p.first -> get_value());
         if(it == visited.end()){
             vector<int> w = vector<int>(visited);
             w.push_back(p.first -> get_value());
-            int new_cost = bruteForce(*p.first,sum+p.second,w,count+1,size,startNumb);
+            int new_cost = nearestNeighbour(*p.first,sum+p.second,w,count+1,size, startNumb);
             min_cost = min(min_cost,new_cost);
         }
     }
-
-
-    return min_cost;
 }
 
-void BruteForce::findBestWay(vector<Node> nodes) {
+void NearestNeighbour::findBestWay(vector<Node> nodes) {
+
+
     vector<int> best_scores = vector<int>();
     vector<vector<int> > best_ways = vector<vector<int> >();
     for(int x = 0; x < nodes.size(); x++){
         vector<int> visited = vector<int>();
         visited.push_back(x);
-        bruteForce(nodes[x],0,visited,1,nodes.size(),x);
+        nearestNeighbour(nodes[x],0,visited,1,nodes.size(),x);
         best_scores.push_back(result);
         best_ways.push_back(best_way);
         result = INT_MAX;
@@ -56,5 +62,4 @@ void BruteForce::findBestWay(vector<Node> nodes) {
     for(int x : best_ways[index]){
         cout << x << " ";
     }
-    cout << endl;
 }

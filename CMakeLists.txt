@@ -13,4 +13,6 @@ add_executable(PEA main.cpp
         TSP/bruteForce/BruteForce.h
         data/data_loader/DataLoader.cpp
         data/data_loader/DataLoader.h
-        data/data_loader/DataLoader.h)
+        data/data_loader/DataLoader.h
+        TSP/NearestNeighbour/NearestNeighbour.cpp
+        TSP/NearestNeighbour/NearestNeighbour.h)

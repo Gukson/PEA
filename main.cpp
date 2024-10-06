@@ -3,6 +3,7 @@
 #include <vector>
 #include "Tree/Node/Node.h"
 #include "TSP/bruteForce/BruteForce.h"
+#include "TSP/NearestNeighbour/NearestNeighbour.h"
 using namespace std;
 
 
@@ -19,14 +20,11 @@ int main() {
     }
 
     BruteForce b = BruteForce();
-    vector<int> visited = vector<int>();
-    visited.push_back(0);
-    b.bruteForce(nodes[0],0,visited,1,nodes.size());
-    cout << "Best score: "<< b.result << endl;
-    cout << "Best way: ";
-    for(int x = 0 ; x < b.best_wat.size(); x++){
-        cout << b.best_wat[x] << " ";
-    }
+    b.findBestWay(nodes);
+
+    NearestNeighbour n = NearestNeighbour();
+    n.findBestWay(nodes);
+
 
     return 0;
 }
