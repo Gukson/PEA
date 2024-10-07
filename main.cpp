@@ -4,6 +4,7 @@
 #include "Tree/Node/Node.h"
 #include "TSP/bruteForce/BruteForce.h"
 #include "TSP/NearestNeighbour/NearestNeighbour.h"
+#include "TSP/RandomNeighbour/RandomNeighbour.h"
 using namespace std;
 
 
@@ -22,9 +23,11 @@ int main() {
 //    BruteForce b = BruteForce();
 //    b.findBestWay(nodes);
 
-    NearestNeighbour n = NearestNeighbour();
-    n.findBestWay(nodes);
+//    NearestNeighbour n = NearestNeighbour();
+//    n.findBestWay(nodes);
 
+    RandomNeighbour r = RandomNeighbour();
+    r.randomNeighbour(10000,nodes);
 
     return 0;
 }

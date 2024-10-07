@@ -3,3 +3,48 @@
 //
 
 #include "RandomNeighbour.h"
+
+void RandomNeighbour::randomNeighbour(int filesPermutation, vector<Node> nodes) {
+
+    random_device rd;
+    mt19937 g(rd());
+
+    for(int x = 0; x < filesPermutation; x++) {
+        cout << x << ": " << best_score << endl;
+        int score = 0;
+        vector<int> way = vector<int>();
+        shuffle(nodes.begin(), nodes.end(), g);
+        for (int y = 0; y < nodes.size() - 1; y++) {
+            bool found = false;
+            for (pair<Node *, int> p: nodes[y].getVectorOfNodes()) {
+                if (p.first->get_value() == nodes[y + 1].get_value()) {
+                    score += p.second;
+                    way.push_back(nodes[y].get_value());
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                break;
+            }
+        }
+        if (way.size() == nodes.size() - 1) {
+            bool found = false;
+            for (pair<Node *, int> p: nodes[nodes.size() - 1].getVectorOfNodes()) {
+                if (p.first->get_value() == nodes[0].get_value()) {
+                    score += p.second;
+                    way.push_back(nodes[nodes.size() - 1].get_value());
+                    way.push_back(nodes[0].get_value());
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
+                best_score = min(best_score, score);
+                if (best_score == score) {
+                    best_way = way;
+                }
+            }
+        }
+    }
+}
