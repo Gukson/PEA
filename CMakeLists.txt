@@ -15,4 +15,8 @@ add_executable(PEA main.cpp
         TSP/NearestNeighbour/NearestNeighbour.cpp
         TSP/NearestNeighbour/NearestNeighbour.h
         TSP/RandomNeighbour/RandomNeighbour.cpp
-        TSP/RandomNeighbour/RandomNeighbour.h)
+        TSP/RandomNeighbour/RandomNeighbour.h
+        config/configClass/Config.cpp
+        config/configClass/Config.h
+        TSP/TSPSolver/TSPSolver.cpp
+        TSP/TSPSolver/TSPSolver.h)

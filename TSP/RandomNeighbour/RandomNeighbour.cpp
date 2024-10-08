@@ -10,7 +10,6 @@ void RandomNeighbour::randomNeighbour(int filesPermutation, vector<Node> nodes) 
     mt19937 g(rd());
 
     for(int x = 0; x < filesPermutation; x++) {
-        cout << x << ": " << best_score << endl;
         int score = 0;
         vector<int> way = vector<int>();
         shuffle(nodes.begin(), nodes.end(), g);
@@ -40,8 +39,8 @@ void RandomNeighbour::randomNeighbour(int filesPermutation, vector<Node> nodes) 
                 }
             }
             if (found) {
-                best_score = min(best_score, score);
-                if (best_score == score) {
+                result = min(result, score);
+                if (result == score) {
                     best_way = way;
                 }
             }

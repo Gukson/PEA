@@ -23,7 +23,7 @@ vector<Node> DataLoader::loadData(string fileName) {
     ifstream file;
     file.open("../data/data_files/" + fileName);
     if (file.is_open()){
-        cout << "Otwarty" << endl;
+        cout << "Otworzono plik z danymi" << endl;
     }
     string line;
     getline(file,line);

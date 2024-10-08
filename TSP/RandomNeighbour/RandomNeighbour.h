@@ -15,7 +15,7 @@ using namespace std;
 
 class RandomNeighbour {
 public:
-    int best_score = INT_MAX;
+    int result = INT_MAX;
     vector<int> best_way = vector<int>();
     void randomNeighbour(int filesPermutation, vector<Node> Nodes);
 };

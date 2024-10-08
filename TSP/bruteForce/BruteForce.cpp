@@ -5,8 +5,12 @@
 #include "BruteForce.h"
 
 int BruteForce::bruteForce(Node start,int sum, vector<int> visited,int count, int size, int startNumb) {
-    if(count == size && visited.size() == size){
 
+    if(sum > result){
+        return INT_MAX;
+    }
+
+    if(count == size && visited.size() == size){
         for(pair<Node*,int> p : start.getVectorOfNodes()){
             if(p.first -> get_value() == startNumb){
                 result = min(sum + p.second, result);
@@ -45,16 +49,18 @@ void BruteForce::findBestWay(vector<Node> nodes) {
         best_ways.push_back(best_way);
         result = INT_MAX;
         best_way.clear();
-        cout << x << endl;
+//        cout << x << endl;
     }
     auto min_it = std::min_element(best_scores.begin(), best_scores.end());
-    cout << "Best score: "<< *min_it << endl;
+//    cout << "Best score: "<< *min_it << endl;
+    result = *min_it;
     auto it = std::find(best_scores.begin(), best_scores.end(),*min_it);
     int index = distance(best_scores.begin(),it);
+    best_way = best_ways[index];
 
-    cout << "Best way: ";
-    for(int x : best_ways[index]){
-        cout << x << " ";
-    }
-    cout << endl;
+//    cout << "Best way: ";
+//    for(int x : best_ways[index]){
+//        cout << x << " ";
+//    }
+//    cout << endl;
 }

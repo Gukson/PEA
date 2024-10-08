@@ -52,15 +52,10 @@ void NearestNeighbour::findBestWay(vector<Node> nodes) {
         best_ways.push_back(best_way);
         result = INT_MAX;
         best_way.clear();
-        cout << x << endl;
     }
     auto min_it = std::min_element(best_scores.begin(), best_scores.end());
-    cout << "Best score: "<< *min_it << endl;
+    result = *min_it;
     auto it = std::find(best_scores.begin(), best_scores.end(),*min_it);
     int index = distance(best_scores.begin(),it);
-
-    cout << "Best way: ";
-    for(int x : best_ways[index]){
-        cout << x << " ";
-    }
+    best_way = best_ways[index];
 }
