@@ -1,21 +1,13 @@
 {
   "files": [
     {
-      "file_name": "5nodes.txt",
-      "optimum": 312
-    },
-    {
-      "file_name": "6nodes.txt",
-      "optimum": 312
-    },
-    {
-      "file_name": "7nodes.txt",
+      "file_name": "12nodes.txt",
       "optimum": 312
     }
   ],
-  "percent_of_random_test": 20,
-  "repetitions_per_instance": 5,
-  "output_file": "output.txt",
-  "progress_bar": false,
+  "max_time": 1,
+  "repetitions_per_instance": 1,
+  "output_file": "test.txt",
+  "progress_bar": true,
   "show_nodes_in_console": false
 }

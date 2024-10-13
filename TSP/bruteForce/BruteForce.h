@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <chrono>
 #include "../../Tree/Node/Node.h"
 
 using namespace std;
@@ -14,6 +15,9 @@ using namespace std;
 class BruteForce {
 public:
     int result = INT_MAX;
+    bool over30min = false;
+    int timeLimit;
+    std::chrono::time_point<std::chrono::high_resolution_clock> time;
     vector<int> best_way = vector<int>();
     int bruteForce(Node start,int sum, vector<int> visited,int count, int size,int startNumb);
     void findBestWay(vector<Node> nodes);

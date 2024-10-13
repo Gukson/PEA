@@ -14,6 +14,5 @@ int main() {
     TSPSolver solver = TSPSolver();
     solver.testAlgoritms(c);
 
-
     return 0;
 }

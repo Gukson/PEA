@@ -19,7 +19,7 @@ using namespace std;
 class Config {
 public:
     vector<pair<string,int>> files;
-    int percentOfRandomTest;
+    int maxTime;
     int repetitionsPerInstance;
     string outputFile;
     bool progressBar;

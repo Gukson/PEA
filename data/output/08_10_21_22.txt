@@ -1,0 +1,357 @@
+Plik: 4nodes.txt
+BruteForce
+Średni czas;0.000144949
+Średni błąd bezwzględny;2.29012e-05s
+Średni błąd względny;15.7995%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000202202;5.7253e-05;0.394987
+2;0.000131727;1.3222e-05;0.0912183
+3;0.000127658;1.7291e-05;0.11929
+4;0.000130964;1.3985e-05;0.0964822
+5;0.000132194;1.2755e-05;0.0879965
+
+NearestNeighbour
+Średni czas;3.93732e-05
+Średni błąd bezwzględny;7.68416e-06s
+Średni błąd względny;19.5162%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;3.9963e-05;5.898e-07;0.0149797
+2;3.3413e-05;5.9602e-06;0.151377
+3;2.6123e-05;1.32502e-05;0.336528
+4;5.6861e-05;1.74878e-05;0.444155
+5;4.0506e-05;1.1328e-06;0.0287708
+
+RandomNeighbour
+Średni czas;2.78038e-05
+Średni błąd bezwzględny;6.17264e-06s
+Średni błąd względny;22.2007%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;4.0293e-05;1.24892e-05;0.44919
+2;2.9832e-05;2.0282e-06;0.0729469
+3;2.8718e-05;9.142e-07;0.0328804
+4;2.0254e-05;7.5498e-06;0.271538
+5;1.9922e-05;7.8818e-06;0.283479
+
+Plik: 5nodes.txt
+BruteForce
+Średni czas;0.000732943
+Średni błąd bezwzględny;9.31194e-05s
+Średni błąd względny;12.7049%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000830403;9.74602e-05;0.132971
+2;0.000868281;0.000135338;0.18465
+3;0.000632074;0.000100869;0.137622
+4;0.000695488;3.74548e-05;0.0511019
+5;0.000638468;9.44748e-05;0.128898
+
+NearestNeighbour
+Średni czas;3.81738e-05
+Średni błąd bezwzględny;1.94648e-06s
+Średni błąd względny;5.09899%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;4.304e-05;4.8662e-06;0.127475
+2;3.7597e-05;5.768e-07;0.0151098
+3;3.6995e-05;1.1788e-06;0.0308798
+4;3.688e-05;1.2938e-06;0.0338924
+5;3.6357e-05;1.8168e-06;0.0475929
+
+RandomNeighbour
+Średni czas;0.000169005
+Średni błąd bezwzględny;1.09702e-05s
+Średni błąd względny;6.49103%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000152513;1.64918e-05;0.0975818
+2;0.000163407;5.5978e-06;0.0331221
+3;0.000195397;2.63922e-05;0.156162
+4;0.000170038;1.0332e-06;0.00611344
+5;0.000163669;5.3358e-06;0.0315719
+
+Plik: 6nodes.txt
+BruteForce
+Średni czas;0.00544995
+Średni błąd bezwzględny;0.000552684s
+Średni błąd względny;10.1411%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.00440577;0.00104417;0.191593
+2;0.00511241;0.000337539;0.0619343
+3;0.00558145;0.000131498;0.0241284
+4;0.00641078;0.000960835;0.176302
+5;0.00573932;0.000289377;0.0530973
+
+NearestNeighbour
+Średni czas;0.000117738
+Średni błąd bezwzględny;5.82736e-06s
+Średni błąd względny;4.94944%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000110416;7.3218e-06;0.0621873
+2;0.000113365;4.3728e-06;0.0371402
+3;0.000119303;1.5652e-06;0.0132939
+4;0.000114864;2.8738e-06;0.0244085
+5;0.000130741;1.30032e-05;0.110442
+
+RandomNeighbour
+Średni czas;0.00082625
+Średni błąd bezwzględny;8.65812e-05s
+Średni błąd względny;10.4788%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000909115;8.2865e-05;0.10029
+2;0.000732369;9.3881e-05;0.113623
+3;0.000864371;3.8121e-05;0.0461374
+4;0.000703678;0.000122572;0.148347
+5;0.000921717;9.5467e-05;0.115543
+
+Plik: 7nodes.txt
+BruteForce
+Średni czas;0.0191483
+Średni błąd bezwzględny;0.00175018s
+Średni błąd względny;9.14016%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.0185723;0.000575926;0.0300772
+2;0.0200894;0.000941142;0.0491502
+3;0.0225826;0.00343431;0.179354
+4;0.0167168;0.00243147;0.126981
+5;0.0177802;0.00136806;0.0714459
+
+NearestNeighbour
+Średni czas;6.39206e-05
+Średni błąd bezwzględny;2.93296e-06s
+Średni błąd względny;4.58844%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;7.1253e-05;7.3324e-06;0.114711
+2;6.2749e-05;1.1716e-06;0.018329
+3;6.1922e-05;1.9986e-06;0.0312669
+4;6.166e-05;2.2606e-06;0.0353658
+5;6.2019e-05;1.9016e-06;0.0297494
+
+RandomNeighbour
+Średni czas;0.00618683
+Średni błąd bezwzględny;0.000289241s
+Średni błąd względny;4.67511%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.00603123;0.000155593;0.0251491
+2;0.00583655;0.00035028;0.0566171
+3;0.00653398;0.000347157;0.0561123
+4;0.00656277;0.000375946;0.0607655
+5;0.0059696;0.000217229;0.0351116
+
+Plik: 8nodes.txt
+BruteForce
+Średni czas;0.112595
+Średni błąd bezwzględny;0.00271377s
+Średni błąd względny;2.41021%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.115274;0.00267889;0.0237924
+2;0.116328;0.00373342;0.0331581
+3;0.108592;0.00400253;0.0355481
+4;0.109813;0.0027819;0.0247072
+5;0.112967;0.000372108;0.00330485
+
+NearestNeighbour
+Średni czas;9.1223e-05
+Średni błąd bezwzględny;9.4704e-06s
+Średni błąd względny;10.3816%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000114899;2.3676e-05;0.25954
+2;8.3981e-05;7.242e-06;0.0793879
+3;9.0221e-05;1.002e-06;0.0109841
+4;8.3544e-05;7.679e-06;0.0841783
+5;8.347e-05;7.753e-06;0.0849895
+
+RandomNeighbour
+Średni czas;0.0610446
+Średni błąd bezwzględny;0.00382411s
+Średni błąd względny;6.26445%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.0583319;0.00271277;0.0444392
+2;0.0579433;0.00310136;0.0508049
+3;0.0572985;0.00374614;0.0613672
+4;0.06463;0.0035854;0.058734
+5;0.0670195;0.00597488;0.0978772
+
+Plik: 9nodes.txt
+BruteForce
+Średni czas;0.459127
+Średni błąd bezwzględny;0.0119977s
+Średni błąd względny;2.61315%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.485333;0.0262065;0.0570791
+2;0.449248;0.00987853;0.0215159
+3;0.449942;0.00918474;0.0200048
+4;0.462914;0.0037876;0.00824957
+5;0.448196;0.0109309;0.023808
+
+NearestNeighbour
+Średni czas;0.000123638
+Średni błąd bezwzględny;2.22573e-05s
+Średni błąd względny;18.0019%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000143879;2.02406e-05;0.163708
+2;0.000159041;3.54026e-05;0.28634
+3;0.000105839;1.77994e-05;0.143963
+4;0.000104482;1.91564e-05;0.154939
+5;0.000104951;1.86874e-05;0.151146
+
+RandomNeighbour
+Średni czas;0.609741
+Średni błąd bezwzględny;0.039415s
+Średni błąd względny;6.46422%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.708278;0.0985375;0.161606
+2;0.584315;0.0254262;0.0416999
+3;0.594474;0.0152672;0.0250388
+4;0.589817;0.0199237;0.0326757
+5;0.57182;0.0379205;0.0621912
+
+Plik: 10nodes.txt
+BruteForce
+Średni czas;1.20251
+Średni błąd bezwzględny;0.0140513s
+Średni błąd względny;1.1685%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;1.23571;0.0331957;0.0276053
+2;1.18977;0.0127369;0.0105919
+3;1.20343;0.000915214;0.000761086
+4;1.20353;0.00101744;0.0008461
+5;1.18012;0.0223915;0.0186206
+
+NearestNeighbour
+Średni czas;0.000146903
+Średni błąd bezwzględny;1.61298e-05s
+Średni błąd względny;10.9799%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000187228;4.03246e-05;0.274497
+2;0.000143533;3.3704e-06;0.022943
+3;0.00014507;1.8334e-06;0.0124803
+4;0.000129323;1.75804e-05;0.119673
+5;0.000129363;1.75404e-05;0.119401
+
+RandomNeighbour
+Średni czas;6.2214
+Średni błąd bezwzględny;0.0289081s
+Średni błąd względny;0.464657%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;6.22119;0.000201144;3.23309e-05
+2;6.19324;0.0281589;0.00452615
+3;6.19723;0.024167;0.00388451
+4;6.29367;0.0722704;0.0116164
+5;6.20165;0.0197432;0.00317344
+
+Plik: 11nodes.txt
+BruteForce
+Średni czas;116.666
+Średni błąd bezwzględny;0.772439s
+Średni błąd względny;0.662091%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;118.598;1.9311;0.0165523
+2;116.543;0.123147;0.00105555
+3;116.029;0.637371;0.00546319
+4;116.025;0.641797;0.00550113
+5;116.138;0.528782;0.00453242
+
+NearestNeighbour
+Średni czas;0.000186321
+Średni błąd bezwzględny;2.2438e-05s
+Średni błąd względny;12.0427%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000221013;3.4692e-05;0.186195
+2;0.000177972;8.349e-06;0.0448098
+3;0.000207724;2.1403e-05;0.114872
+4;0.000162219;2.4102e-05;0.129357
+5;0.000162677;2.3644e-05;0.126899
+
+RandomNeighbour
+Średni czas;76.1005
+Średni błąd bezwzględny;0.895787s
+Średni błąd względny;1.17711%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;75.0213;1.07923;0.0141816
+2;76.411;0.310457;0.00407957
+3;77.7516;1.65106;0.0216957
+4;76.3785;0.277953;0.00365245
+5;74.9403;1.16024;0.0152461
+
+Plik: 12nodes.txt
+BruteForce
+Średni czas;498.168
+Średni błąd bezwzględny;28.3038s
+Średni błąd względny;5.68158%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;475.251;22.9171;0.0460027
+2;473.974;24.1931;0.0485642
+3;474.518;23.6494;0.0474727
+4;516.713;18.5453;0.0372271
+5;550.382;52.2142;0.104813
+
+NearestNeighbour
+Średni czas;0.000211917
+Średni błąd bezwzględny;1.80454e-05s
+Średni błąd względny;8.5153%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000234968;2.30512e-05;0.108775
+2;0.000192358;1.95588e-05;0.0922947
+3;0.000197153;1.47638e-05;0.0696679
+4;0.000233979;2.20622e-05;0.104108
+5;0.000201126;1.07908e-05;0.05092
+
+RandomNeighbour
+Średni czas;1043.46
+Średni błąd bezwzględny;20.558s
+Średni błąd względny;1.97017%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;1009.99;33.4704;0.0320763
+2;1025.54;17.9245;0.0171779
+3;1071.89;28.4253;0.0272413
+4;1047.94;4.47908;0.00429251
+5;1061.95;18.4906;0.0177204
+
+Plik: 13nodes.txt
+BruteForce
+Średni czas;2618.51
+Średni błąd bezwzględny;34.4312s
+Średni błąd względny;1.31492%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;2675.75;57.245;0.0218617
+2;2628.55;10.0421;0.00383503
+3;2637.3;18.7909;0.00717618
+4;2609.07;9.43553;0.0036034
+5;2541.87;76.6424;0.0292695
+
+NearestNeighbour
+Średni czas;0.000254448
+Średni błąd bezwzględny;2.02281e-05s
+Średni błąd względny;7.94978%
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000264735;1.02866e-05;0.0404271
+2;0.000294732;4.02836e-05;0.158317
+3;0.000239143;1.53054e-05;0.0601513
+4;0.000240616;1.38324e-05;0.0543623
+5;0.000233016;2.14324e-05;0.0842308

@@ -15,6 +15,9 @@ using namespace std;
 
 class RandomNeighbour {
 public:
+    bool over30min = false;
+    int timeLimit;
+    std::chrono::time_point<std::chrono::high_resolution_clock> time;
     int result = INT_MAX;
     vector<int> best_way = vector<int>();
     void randomNeighbour(int filesPermutation, vector<Node> Nodes);

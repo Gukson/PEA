@@ -1,0 +1,159 @@
+Plik: 12nodes.txt
+BruteForce
+Przekroczono limit 1minut!
+Średni czas;60.0006
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 177
+Ścieżka z powyższym wynikiem: 0 9 3 8 11 5 10 6 4 7 1 2 0 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;60.0006;0;0
+
+NearestNeighbour
+Średni czas;0.000223979
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 177
+Ścieżka z powyższym wynikiem: 3 9 0 2 1 7 4 6 10 5 11 8 3 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000223979;0;0
+
+RandomNeighbour
+Plik: 12nodes.txt
+BruteForce
+Przekroczono limit 1minut!
+Średni czas;60.0009
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 177
+Ścieżka z powyższym wynikiem: 0 9 3 8 11 5 10 6 4 7 1 2 0 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;60.0009;0;0
+
+NearestNeighbour
+Średni czas;0.000275081
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 177
+Ścieżka z powyższym wynikiem: 3 9 0 2 1 7 4 6 10 5 11 8 3 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000275081;0;0
+
+RandomNeighbour
+Plik: 12nodes.txt
+BruteForce
+Przekroczono limit 1minut!
+Średni czas;60.0007
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 177
+Ścieżka z powyższym wynikiem: 0 9 3 8 11 5 10 6 4 7 1 2 0 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;60.0007;0;0
+
+NearestNeighbour
+Średni czas;0.000209443
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 177
+Ścieżka z powyższym wynikiem: 3 9 0 2 1 7 4 6 10 5 11 8 3 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000209443;0;0
+
+RandomNeighbour
+Przekroczono limit 1minut!
+Średni czas;60.0001
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 181
+Ścieżka z powyższym wynikiem: 6 9 0 2 8 3 5 10 11 1 7 4 6 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;60.0001;0;0
+
+Plik: 12nodes.txt
+BruteForce
+Przekroczono limit 1minut!
+Średni czas;60.0003
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 177
+Ścieżka z powyższym wynikiem: 0 9 3 8 11 5 10 6 4 7 1 2 0 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;60.0003;0;0
+
+NearestNeighbour
+Średni czas;0.00032255
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 177
+Ścieżka z powyższym wynikiem: 3 9 0 2 1 7 4 6 10 5 11 8 3 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.00032255;0;0
+
+RandomNeighbour
+Plik: 12nodes.txt
+BruteForce
+Przekroczono limit 1minut!
+Średni czas;60.0005
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 185
+Ścieżka z powyższym wynikiem: 1 0 2 10 5 11 8 3 9 6 4 7 1 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;60.0005;0;0
+
+NearestNeighbour
+Średni czas;0.000312889
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 177
+Ścieżka z powyższym wynikiem: 3 9 0 2 1 7 4 6 10 5 11 8 3 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.000312889;0;0
+
+RandomNeighbour
+Przekroczono limit 1minut!
+Średni czas;60.0001
+Średni błąd bezwzględny;0s
+Średni błąd bezwzględny;0%
+Średni błąd względny;0%
+
+Uzyskano wynik: 182
+Ścieżka z powyższym wynikiem: 4 6 9 3 5 10 11 8 0 2 1 7 4 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;60.0001;0;0
+

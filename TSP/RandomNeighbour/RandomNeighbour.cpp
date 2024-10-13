@@ -5,11 +5,10 @@
 #include "RandomNeighbour.h"
 
 void RandomNeighbour::randomNeighbour(int filesPermutation, vector<Node> nodes) {
-
     random_device rd;
     mt19937 g(rd());
-
-    for(int x = 0; x < filesPermutation; x++) {
+    over30min = false;
+    for (int x = 0; x < filesPermutation; x++) {
         int score = 0;
         vector<int> way = vector<int>();
         shuffle(nodes.begin(), nodes.end(), g);
@@ -21,6 +20,10 @@ void RandomNeighbour::randomNeighbour(int filesPermutation, vector<Node> nodes) 
                     way.push_back(nodes[y].get_value());
                     found = true;
                     break;
+                }
+                if (std::chrono::duration_cast<std::chrono::minutes>(
+                        std::chrono::high_resolution_clock::now() - time).count() >= timeLimit) {
+                    throw std::runtime_error("przekroczono limit czasowy");
                 }
             }
             if (!found) {
