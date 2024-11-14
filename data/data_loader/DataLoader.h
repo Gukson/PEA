@@ -16,6 +16,7 @@ using namespace std;
 class DataLoader {
 public:
     vector<Node> loadData(string fileName);
+    int optimum;
 };
 
 

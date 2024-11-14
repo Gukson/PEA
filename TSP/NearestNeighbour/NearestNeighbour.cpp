@@ -1,42 +1,37 @@
-//
-// Created by Kuba on 06/10/2024.
-//
-
 #include "NearestNeighbour.h"
 
-void NearestNeighbour::nearestNeighbour(Node start, int size) {
+void NearestNeighbour::nearestNeighbour(Node start, int size, vector<Node*> visited) {
     int sum = 0;
     int count = 1;
-    vector<int> visited = vector<int>();
-    visited.push_back(start.get_value());
+
+    visited.push_back(&start);
     Node current_Node = start;
     while (count != size){
         vector<pair<Node*, int>> nodes = current_Node.getVectorOfNodes();
-        std::sort(nodes.begin(), nodes.end(), [](std::pair<Node*, int>& a, std::pair<Node*, int>& b) {
-            return a.second < b.second;  // Bezpośrednie porównanie int
+        usunWspolne(nodes,visited);
+
+        std::sort(nodes.begin(), nodes.end(), [](const std::pair<Node*, int>& a, const std::pair<Node*, int>& b) {
+            return a.second < b.second;
         });
-        int index = 0;
-        while(true){
-            int currval = nodes[index].first -> get_value();
-            auto it = find(visited.begin(),visited.end(),currval);
-            if(it == visited.end()){
-                break;
-            } else{
-                index++;
-            }
-        }
-        visited.push_back(nodes[index].first->get_value());
-        sum += nodes[index].second;
-        current_Node = *nodes[index].first;
+
+        visited.push_back(nodes[0].first);
+        sum += nodes[0].second;
+        current_Node = *nodes[0].first;
         count += 1;
     }
-    for(pair<Node*,int> p : current_Node.getVectorOfNodes()){
-        if(p.first -> get_value() == start.get_value()){
-            result = min(sum + p.second, result);
-            if(result == sum + p.second){
-                visited.push_back(start.get_value());
-                best_way = visited;
-            }
+
+    auto it = std::find_if(current_Node.getVectorOfNodes().begin(), current_Node.getVectorOfNodes().end(), [&start](const std::pair<Node*, int>& p) {
+        return p.first->get_value() == start.get_value();  // Sprawdzamy, czy wartość w first.get_value() jest równa start.get_value()
+    });
+
+    if (it != current_Node.getVectorOfNodes().end()) {
+        int index = std::distance(current_Node.getVectorOfNodes().begin(), it);
+        visited.push_back(&start);
+        sum += current_Node.getVectorOfNodes()[index].second;
+        if(sum < result){
+            result = sum;
+            best_way.clear();
+            for(Node* n: visited) best_way.push_back(n->get_value());
         }
     }
 }
@@ -45,9 +40,8 @@ void NearestNeighbour::findBestWay(vector<Node> nodes) {
     vector<int> best_scores = vector<int>();
     vector<vector<int> > best_ways = vector<vector<int> >();
     for(int x = 0; x < nodes.size(); x++){
-        vector<int> visited = vector<int>();
-        visited.push_back(x);
-        nearestNeighbour(nodes[x],nodes.size());
+        vector<Node*> visited = vector<Node*>();
+        nearestNeighbour(nodes[x], nodes.size(),visited);
         best_scores.push_back(result);
         best_ways.push_back(best_way);
         result = INT_MAX;

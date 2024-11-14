@@ -19,4 +19,9 @@ add_executable(PEA main.cpp
         config/configClass/Config.cpp
         config/configClass/Config.h
         TSP/TSPSolver/TSPSolver.cpp
-        TSP/TSPSolver/TSPSolver.h)
+        TSP/TSPSolver/TSPSolver.h
+        TSP/BaB/LCFS/LCFS.cpp
+        TSP/BaB/DFS/DFS.cpp
+        TSP/BaB/BFS/BFS.cpp
+        TSP/pomocnicze/usunWspolne.cpp
+        TSP/pomocnicze/usunWspolne.h)

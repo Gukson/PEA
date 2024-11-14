@@ -9,6 +9,7 @@
 #include <vector>
 #include <algorithm>
 #include "../../Tree/Node/Node.h"
+#include "../pomocnicze/usunWspolne.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ class NearestNeighbour {
 public:
     int result = INT_MAX;
     vector<int> best_way = vector<int>();
-    void nearestNeighbour(Node start, int size);
+    void nearestNeighbour(Node start, int size, vector<Node*> visited);
     void findBestWay(vector<Node> nodes);
 };
 
