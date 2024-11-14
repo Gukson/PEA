@@ -9,13 +9,14 @@
 #include <vector>
 #include <chrono>
 #include "../../Tree/Node/Node.h"
+#include "../pomocnicze/usunWspolne.h"
 
 using namespace std;
 
 class BruteForce {
 public:
     int result = INT_MAX;
-    bool over30min = false;
+    bool overTime = false;
     int timeLimit;
     std::chrono::time_point<std::chrono::high_resolution_clock> time;
     vector<int> best_way = vector<int>();

@@ -1,13 +1,9 @@
-//
-// Created by Kuba on 06/10/2024.
-//
-
 #include "RandomNeighbour.h"
 
 void RandomNeighbour::randomNeighbour(int filesPermutation, vector<Node> nodes) {
     random_device rd;
     mt19937 g(rd());
-    over30min = false;
+    overTime = false;
     for (int x = 0; x < filesPermutation; x++) {
         int score = 0;
         vector<int> way = vector<int>();

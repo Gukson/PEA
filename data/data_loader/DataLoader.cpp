@@ -27,9 +27,9 @@ vector<Node> DataLoader::loadData(string fileName) {
     }
     string line;
     getline(file,line);
-    cout << line << endl;
     int nodesAmount = stoi(line);
-
+    getline(file,line);
+    optimum = stoi(line);
     vector<Node> nodes = vector<Node>();
 
     for(int x = 0; x < nodesAmount; x++){

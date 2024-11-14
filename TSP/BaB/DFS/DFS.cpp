@@ -1,15 +1,18 @@
 //
-// Created by Kuba on 04/10/2024.
+// Created by Kuba on 23/10/2024.
 //
 
-#include "BruteForce.h"
+#include "DFS.h"
 
-int BruteForce::bruteForce(Node start, int sum, vector<int> visited, int count, int size, int startNumb) {
+int DFS::dfs(Node start, int sum, vector<int> visited, int count, int size, int startNumb) {
 
     if (std::chrono::duration_cast<std::chrono::minutes>(std::chrono::high_resolution_clock::now() - time).count() >=
         timeLimit) {
         throw std::runtime_error("przekroczono limit czasowy");
+    } else if(result == optimum){
+        throw std::runtime_error("Znaleziono wartość optymalną");
     }
+
     if (sum > result) {
         return INT_MAX;
     }
@@ -33,21 +36,21 @@ int BruteForce::bruteForce(Node start, int sum, vector<int> visited, int count, 
         if (it == visited.end()) {
             vector<int> w = vector<int>(visited);
             w.push_back(p.first->get_value());
-            int new_cost = bruteForce(*p.first, sum + p.second, w, count + 1, size, startNumb);
+            int new_cost = dfs(*p.first, sum + p.second, w, count + 1, size, startNumb);
             min_cost = min(min_cost, new_cost);
         }
     }
     return min_cost;
 }
 
-void BruteForce::findBestWay(vector<Node> nodes) {
+void DFS::findBestWay(vector<Node> nodes) {
     overTime = false;
     vector<int> best_scores = vector<int>();
     vector<vector<int> > best_ways = vector<vector<int> >();
     for (int x = 0; x < nodes.size(); x++) {
         vector<int> visited = vector<int>();
         visited.push_back(x);
-        bruteForce(nodes[x], 0, visited, 1, nodes.size(), x);
+        dfs(nodes[x], 0, visited, 1, nodes.size(), x);
         best_scores.push_back(result);
         best_ways.push_back(best_way);
         result = INT_MAX;

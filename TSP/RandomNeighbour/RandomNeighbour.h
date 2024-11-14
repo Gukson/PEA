@@ -15,7 +15,7 @@ using namespace std;
 
 class RandomNeighbour {
 public:
-    bool over30min = false;
+    bool overTime = false;
     int timeLimit;
     std::chrono::time_point<std::chrono::high_resolution_clock> time;
     int result = INT_MAX;

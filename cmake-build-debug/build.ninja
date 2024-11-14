@@ -51,51 +51,75 @@ build cmake_object_order_depends_target_PEA: phony || CMakeFiles/PEA.dir
 
 build CMakeFiles/PEA.dir/main.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/main.cpp || cmake_object_order_depends_target_PEA
   DEP_FILE = CMakeFiles/PEA.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/PEA.dir
   OBJECT_FILE_DIR = CMakeFiles/PEA.dir
 
 build CMakeFiles/PEA.dir/Tree/Node/Node.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/Tree/Node/Node.cpp || cmake_object_order_depends_target_PEA
   DEP_FILE = CMakeFiles/PEA.dir/Tree/Node/Node.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/PEA.dir
   OBJECT_FILE_DIR = CMakeFiles/PEA.dir/Tree/Node
 
 build CMakeFiles/PEA.dir/TSP/bruteForce/BruteForce.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/TSP/bruteForce/BruteForce.cpp || cmake_object_order_depends_target_PEA
   DEP_FILE = CMakeFiles/PEA.dir/TSP/bruteForce/BruteForce.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/PEA.dir
   OBJECT_FILE_DIR = CMakeFiles/PEA.dir/TSP/bruteForce
 
 build CMakeFiles/PEA.dir/data/data_loader/DataLoader.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/data/data_loader/DataLoader.cpp || cmake_object_order_depends_target_PEA
   DEP_FILE = CMakeFiles/PEA.dir/data/data_loader/DataLoader.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/PEA.dir
   OBJECT_FILE_DIR = CMakeFiles/PEA.dir/data/data_loader
 
 build CMakeFiles/PEA.dir/TSP/NearestNeighbour/NearestNeighbour.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/TSP/NearestNeighbour/NearestNeighbour.cpp || cmake_object_order_depends_target_PEA
   DEP_FILE = CMakeFiles/PEA.dir/TSP/NearestNeighbour/NearestNeighbour.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/PEA.dir
   OBJECT_FILE_DIR = CMakeFiles/PEA.dir/TSP/NearestNeighbour
 
 build CMakeFiles/PEA.dir/TSP/RandomNeighbour/RandomNeighbour.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/TSP/RandomNeighbour/RandomNeighbour.cpp || cmake_object_order_depends_target_PEA
   DEP_FILE = CMakeFiles/PEA.dir/TSP/RandomNeighbour/RandomNeighbour.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/PEA.dir
   OBJECT_FILE_DIR = CMakeFiles/PEA.dir/TSP/RandomNeighbour
 
 build CMakeFiles/PEA.dir/config/configClass/Config.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/config/configClass/Config.cpp || cmake_object_order_depends_target_PEA
   DEP_FILE = CMakeFiles/PEA.dir/config/configClass/Config.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/PEA.dir
   OBJECT_FILE_DIR = CMakeFiles/PEA.dir/config/configClass
 
 build CMakeFiles/PEA.dir/TSP/TSPSolver/TSPSolver.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/TSP/TSPSolver/TSPSolver.cpp || cmake_object_order_depends_target_PEA
   DEP_FILE = CMakeFiles/PEA.dir/TSP/TSPSolver/TSPSolver.cpp.o.d
-  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/PEA.dir
   OBJECT_FILE_DIR = CMakeFiles/PEA.dir/TSP/TSPSolver
+
+build CMakeFiles/PEA.dir/TSP/BaB/LCFS/LCFS.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/TSP/BaB/LCFS/LCFS.cpp || cmake_object_order_depends_target_PEA
+  DEP_FILE = CMakeFiles/PEA.dir/TSP/BaB/LCFS/LCFS.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PEA.dir
+  OBJECT_FILE_DIR = CMakeFiles/PEA.dir/TSP/BaB/LCFS
+
+build CMakeFiles/PEA.dir/TSP/BaB/DFS/DFS.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/TSP/BaB/DFS/DFS.cpp || cmake_object_order_depends_target_PEA
+  DEP_FILE = CMakeFiles/PEA.dir/TSP/BaB/DFS/DFS.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PEA.dir
+  OBJECT_FILE_DIR = CMakeFiles/PEA.dir/TSP/BaB/DFS
+
+build CMakeFiles/PEA.dir/TSP/BaB/BFS/BFS.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/TSP/BaB/BFS/BFS.cpp || cmake_object_order_depends_target_PEA
+  DEP_FILE = CMakeFiles/PEA.dir/TSP/BaB/BFS/BFS.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PEA.dir
+  OBJECT_FILE_DIR = CMakeFiles/PEA.dir/TSP/BaB/BFS
+
+build CMakeFiles/PEA.dir/TSP/pomocnicze/usunWspolne.cpp.o: CXX_COMPILER__PEA_unscanned_Debug /Users/kuba/CLionProjects/PEA/TSP/pomocnicze/usunWspolne.cpp || cmake_object_order_depends_target_PEA
+  DEP_FILE = CMakeFiles/PEA.dir/TSP/pomocnicze/usunWspolne.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PEA.dir
+  OBJECT_FILE_DIR = CMakeFiles/PEA.dir/TSP/pomocnicze
 
 
 # =============================================================================
@@ -105,8 +129,8 @@ build CMakeFiles/PEA.dir/TSP/TSPSolver/TSPSolver.cpp.o: CXX_COMPILER__PEA_unscan
 #############################################
 # Link the executable PEA
 
-build PEA: CXX_EXECUTABLE_LINKER__PEA_Debug CMakeFiles/PEA.dir/main.cpp.o CMakeFiles/PEA.dir/Tree/Node/Node.cpp.o CMakeFiles/PEA.dir/TSP/bruteForce/BruteForce.cpp.o CMakeFiles/PEA.dir/data/data_loader/DataLoader.cpp.o CMakeFiles/PEA.dir/TSP/NearestNeighbour/NearestNeighbour.cpp.o CMakeFiles/PEA.dir/TSP/RandomNeighbour/RandomNeighbour.cpp.o CMakeFiles/PEA.dir/config/configClass/Config.cpp.o CMakeFiles/PEA.dir/TSP/TSPSolver/TSPSolver.cpp.o
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk
+build PEA: CXX_EXECUTABLE_LINKER__PEA_Debug CMakeFiles/PEA.dir/main.cpp.o CMakeFiles/PEA.dir/Tree/Node/Node.cpp.o CMakeFiles/PEA.dir/TSP/bruteForce/BruteForce.cpp.o CMakeFiles/PEA.dir/data/data_loader/DataLoader.cpp.o CMakeFiles/PEA.dir/TSP/NearestNeighbour/NearestNeighbour.cpp.o CMakeFiles/PEA.dir/TSP/RandomNeighbour/RandomNeighbour.cpp.o CMakeFiles/PEA.dir/config/configClass/Config.cpp.o CMakeFiles/PEA.dir/TSP/TSPSolver/TSPSolver.cpp.o CMakeFiles/PEA.dir/TSP/BaB/LCFS/LCFS.cpp.o CMakeFiles/PEA.dir/TSP/BaB/DFS/DFS.cpp.o CMakeFiles/PEA.dir/TSP/BaB/BFS/BFS.cpp.o CMakeFiles/PEA.dir/TSP/pomocnicze/usunWspolne.cpp.o
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk
   OBJECT_DIR = CMakeFiles/PEA.dir
   POST_BUILD = :
   PRE_LINK = :

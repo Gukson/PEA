@@ -50,10 +50,10 @@ void TSPSolver::testAlgoritms(Config config) {
                 b.findBestWay(nodes);
             } catch (const std::runtime_error &e) {
                 std::cerr << "Błąd: " << e.what() << std::endl;
-                b.over30min = true;
+                b.overTime = true;
             }
             finish = chrono::high_resolution_clock::now();
-            if (b.over30min) {
+            if (b.overTime) {
                 cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
                 outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
             }
@@ -156,7 +156,7 @@ void TSPSolver::testAlgoritms(Config config) {
         cout << endl;
         cout << endl;
 
-        //RandomNeighbour
+//        RandomNeighbour
         cout << "RandomNeighbour dla pliku " << p.first << " w trakcie liczenia" << endl;
         outputFile << "RandomNeighbour" << endl;
         long long permutacje = 1;
@@ -173,10 +173,10 @@ void TSPSolver::testAlgoritms(Config config) {
                 r.randomNeighbour(permutacje, nodes);
             } catch (const std::runtime_error &e) {
                 std::cerr << "Błąd: " << e.what() << std::endl;
-                r.over30min = true;
+                r.overTime = true;
             }
             finish = chrono::high_resolution_clock::now();
-            if (r.over30min) {
+            if (r.overTime) {
                 cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
                 outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
             }
