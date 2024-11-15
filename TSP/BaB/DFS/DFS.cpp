@@ -9,8 +9,6 @@ int DFS::dfs(Node start, int sum, vector<int> visited, int count, int size, int 
     if (std::chrono::duration_cast<std::chrono::minutes>(std::chrono::high_resolution_clock::now() - time).count() >=
         timeLimit) {
         throw std::runtime_error("przekroczono limit czasowy");
-    } else if(result == optimum){
-        throw std::runtime_error("Znaleziono wartość optymalną");
     }
 
     if (sum > result) {
@@ -47,7 +45,11 @@ void DFS::findBestWay(vector<Node> nodes) {
     overTime = false;
     vector<int> best_scores = vector<int>();
     vector<vector<int> > best_ways = vector<vector<int> >();
+    NearestNeighbour n = NearestNeighbour();
     for (int x = 0; x < nodes.size(); x++) {
+        vector<Node*> visited2 = vector<Node*>();
+        n.nearestNeighbour(nodes[x],nodes.size(),visited2);
+        result = n.result;
         vector<int> visited = vector<int>();
         visited.push_back(x);
         dfs(nodes[x], 0, visited, 1, nodes.size(), x);

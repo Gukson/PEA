@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include "../../../Tree/Node/Node.h"
 #include "../../pomocnicze/usunWspolne.h"
+#include "../../../TSP/NearestNeighbour/NearestNeighbour.h"
 #include <queue>
 using namespace std;
 
@@ -28,12 +29,12 @@ public:
             return cost > other.cost;  // Mniejszy koszt ma wyższy priorytet
         }
     };
-
+    void findBestWay(vector<Node> nodes);
     void lcfs(Node start, int size);
     int result = INT_MAX;
     bool overTime = false;
     int timeLimit;
-    int optimum = INT_MAX;
+    std::chrono::time_point<std::chrono::high_resolution_clock> time;
     vector<int> best_way = vector<int>();
 
 };

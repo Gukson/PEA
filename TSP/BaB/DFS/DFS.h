@@ -8,6 +8,7 @@
 #include <vector>
 #include <chrono>
 #include "../../../Tree/Node/Node.h"
+#include "../../NearestNeighbour/NearestNeighbour.h"
 
 
 class DFS {
@@ -15,7 +16,6 @@ public:
     int result = INT_MAX;
     bool overTime = false;
     int timeLimit;
-    int optimum;
     std::chrono::time_point<std::chrono::high_resolution_clock> time;
     vector<int> best_way = vector<int>();
     int dfs(Node start, int sum, vector<int> visited, int count, int size, int startNumb);

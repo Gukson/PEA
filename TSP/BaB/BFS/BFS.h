@@ -16,10 +16,13 @@ using namespace std;
 
 class BFS {
 public:
+    void findBestWay(vector<Node> nodes);
     void bfs(Node start, int size);
     int result = INT_MAX;
     bool overTime = false;
     int timeLimit;
+    std::chrono::time_point<std::chrono::high_resolution_clock> time;
+    vector<int> best_way = vector<int>();
 };
 
 

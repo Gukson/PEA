@@ -31,8 +31,6 @@ void LCFS::lcfs(Node start, int size) {
                     for(int x = 0; x < k.way.size(); x++){
                         best_way.push_back(k.way[x]->get_value());
                     }
-
-                    if(result == optimum)break;
                 }
             }
             pq.pop();
@@ -40,6 +38,11 @@ void LCFS::lcfs(Node start, int size) {
         }
 
         for(auto &t: temp){
+            if (std::chrono::duration_cast<std::chrono::minutes>(std::chrono::high_resolution_clock::now() - time).count() >=
+                timeLimit) {
+                throw std::runtime_error("przekroczono limit czasowy");
+            }
+
             vector<Node*> new_way = k.way;
             new_way.push_back(t.first);
 
@@ -57,3 +60,31 @@ void LCFS::lcfs(Node start, int size) {
 
 }
 
+void LCFS::findBestWay(vector<Node> nodes) {
+    overTime = false;
+    vector<int> best_scores = vector<int>();
+    vector<vector<int> > best_ways = vector<vector<int> >();
+    NearestNeighbour n = NearestNeighbour();
+    for (int x = 0; x < nodes.size(); x++) {
+        vector<Node*> visited2 = vector<Node*>();
+
+        //liczenie NN jako ograniczenie górne
+        n.nearestNeighbour(nodes[x],nodes.size(),visited2);
+        result = n.result;
+
+        lcfs(nodes[x], nodes.size());
+
+        //zapisywanie wyników
+        best_scores.push_back(result);
+        best_ways.push_back(best_way);
+
+        //czyszczenie
+        result = INT_MAX;
+        best_way.clear();
+    }
+    auto min_it = std::min_element(best_scores.begin(), best_scores.end());
+    result = *min_it;
+    auto it = std::find(best_scores.begin(), best_scores.end(), *min_it);
+    int index = distance(best_scores.begin(), it);
+    best_way = best_ways[index];
+}

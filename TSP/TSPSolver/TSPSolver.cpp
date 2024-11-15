@@ -5,7 +5,7 @@
 #include "TSPSolver.h"
 
 void TSPSolver::testAlgoritms(Config config) {
-    ofstream outputFile("../data/output/" + config.outputFile, std::ios_base::app);
+    outputFile.open("../data/output/" + config.outputFile, std::ios_base::app);
 
     for (int index = 0; index < config.files.size(); index++) {
         outputFile << "Plik: " << config.files[index].first << endl;
@@ -15,13 +15,17 @@ void TSPSolver::testAlgoritms(Config config) {
         n.result = INT_MAX;
         r.result = INT_MAX;
 
+
+
+
         b.timeLimit = config.maxTime;
         r.timeLimit = config.maxTime;
+        d.timeLimit = config.maxTime;
+        bfs.timeLimit = config.maxTime;
+        l.timeLimit = config.maxTime;
+
 
         pair<string, int> p = config.files[index];
-        bruteForceTime.push_back(vector<double>());
-        nearTime.push_back(vector<double>());
-        randomTime.push_back(vector<double>());
 
         int progressSave = 0;
         float progress = 0.0;
@@ -38,6 +42,8 @@ void TSPSolver::testAlgoritms(Config config) {
             }
         }
 
+
+        timeMeasurements.clear();
         //BruteForce
         auto start = chrono::high_resolution_clock::now();
         auto finish = chrono::high_resolution_clock::now();
@@ -58,54 +64,20 @@ void TSPSolver::testAlgoritms(Config config) {
                 outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
             }
             ms_double = finish - start;
-            bruteForceTime[index].push_back(ms_double.count() / 1000);
+            timeMeasurements.push_back(ms_double.count() / 1000);
 
             if (config.progressBar) {
                 progressBar(&progressSave, &progress, config.repetitionsPerInstance);
             }
         }
         cout << endl;
-        //wyliczyc sredni czas i odchylenie
-        //wpisywanie do pliku
-        vector<double> stats = calcStats(bruteForceTime[index]);
-        outputFile << "Średni czas;" << stats[0] << endl;
-        outputFile << "Średni błąd bezwzględny;" << stats[1] << "s" << endl;
-        outputFile << "Średni błąd bezwzględny;" << stats[1] * 100 << "%" << endl;
-        outputFile << "Średni błąd względny;" << stats[2] * 100 << "%" << endl;
-        outputFile << endl;
-        outputFile << "Uzyskano wynik: " << b.result << endl;
-        outputFile << "Ścieżka z powyższym wynikiem: ";
-        for (int x: b.best_way) {
-            outputFile << x << " ";
-        }
-        outputFile << endl;
-        outputFile << endl;
-        outputFile << "LP;czas;blad bezwzgledny;blad wzgledny" << endl;
-        for (int x = 0; x < bruteForceTime[index].size(); x++) {
-            outputFile << x + 1 << ";" << bruteForceTime[index][x] << ";" << absolutes[x] << ";" << relatives[x]
-                       << endl;
-        }
-        outputFile << endl;
 
+        statsOutput(calcStats(timeMeasurements),b.best_way);
 
-        cout << "Średni czas: " << stats[0] << "s" << endl;
-        cout << "Średni błąd bezwzględny: " << stats[1] << "s" << endl;
-        cout << "Średni błąd bezwzględny: " << stats[1] * 100 << "%" << endl;
-        cout << "Średni błąd względny: " << stats[2] * 100 << "%" << endl;
-
-        cout << "Uzyskano wynik: " << b.result << endl;
-        if (nodes.size() < 16) {
-            cout << "Ścieżka z powyższym wynikiem: ";
-            for (int x: b.best_way) {
-                cout << x << " ";
-            }
-        }
-        cout << endl;
-        cout << endl;
-        cout << endl;
-
+        timeMeasurements.clear();
         //NearestNeighbour
         cout << "NearestNeighbour dla pliku " << p.first << " w trakcie liczenia" << endl;
+        outputFile << "NearestNeighbour" << endl;
         progressSave = 0;
         progress = 0.0;
         for (int x = 0; x < config.repetitionsPerInstance; x++) {
@@ -113,50 +85,18 @@ void TSPSolver::testAlgoritms(Config config) {
             n.findBestWay(nodes);
             finish = chrono::high_resolution_clock::now();
             ms_double = finish - start;
-            nearTime[index].push_back(ms_double.count() / 1000);
+            timeMeasurements.push_back(ms_double.count() / 1000);
 
             if (config.progressBar) {
                 progressBar(&progressSave, &progress, config.repetitionsPerInstance);
             }
         }
         cout << endl;
-        stats = calcStats(nearTime[index]);
-        //wpisywanie do pliku
-        outputFile << "NearestNeighbour" << endl;
-        outputFile << "Średni czas;" << stats[0] << endl;
-        outputFile << "Średni błąd bezwzględny;" << stats[1] << "s" << endl;
-        outputFile << "Średni błąd bezwzględny;" << stats[1] * 100 << "%" << endl;
-        outputFile << "Średni błąd względny;" << stats[2] * 100 << "%" << endl;
-        outputFile << endl;
-        outputFile << "Uzyskano wynik: " << n.result << endl;
-        outputFile << "Ścieżka z powyższym wynikiem: ";
-        for (int x: n.best_way) {
-            outputFile << x << " ";
-        }
-        outputFile << endl;
-        outputFile << endl;
-        outputFile << "LP;czas;blad bezwzgledny;blad wzgledny" << endl;
-        for (int x = 0; x < nearTime[index].size(); x++) {
-            outputFile << x + 1 << ";" << nearTime[index][x] << ";" << absolutes[x] << ";" << relatives[x] << endl;
-        }
-        outputFile << endl;
+        statsOutput(calcStats(timeMeasurements),n.best_way);
 
-        cout << "Średni czas: " << stats[0] << "s" << endl;
-        cout << "Średni błąd bezwzględny: " << stats[1] << "s" << endl;
-        cout << "Średni błąd bezwzględny: " << stats[1] * 100 << "%" << endl;
-        cout << "Średni błąd względny: " << stats[2] * 100 << "%" << endl;
-        cout << "Uzyskano wynik: " << n.result << endl;
-        if (nodes.size() < 16) {
-            cout << "Ścieżka z powyższym wynikiem: ";
-            for (int x: n.best_way) {
-                cout << x << " ";
-            }
-        }
-        cout << endl;
-        cout << endl;
-        cout << endl;
 
-//        RandomNeighbour
+        timeMeasurements.clear();
+//      RandomNeighbour
         cout << "RandomNeighbour dla pliku " << p.first << " w trakcie liczenia" << endl;
         outputFile << "RandomNeighbour" << endl;
         long long permutacje = 1;
@@ -181,47 +121,110 @@ void TSPSolver::testAlgoritms(Config config) {
                 outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
             }
             ms_double = finish - start;
-            randomTime[index].push_back(ms_double.count() / 1000);
+            timeMeasurements.push_back(ms_double.count() / 1000);
 
             if (config.progressBar) {
                 progressBar(&progressSave, &progress, config.repetitionsPerInstance);
             }
         }
         cout << endl;
-        stats = calcStats(randomTime[index]);
-        //wpisywanie do pliku
-        outputFile << "Średni czas;" << stats[0] << endl;
-        outputFile << "Średni błąd bezwzględny;" << stats[1] << "s" << endl;
-        outputFile << "Średni błąd bezwzględny;" << stats[1] * 100 << "%" << endl;
-        outputFile << "Średni błąd względny;" << stats[2] * 100 << "%" << endl;
-        outputFile << endl;
-        outputFile << "Uzyskano wynik: " << r.result << endl;
-        outputFile << "Ścieżka z powyższym wynikiem: ";
-        for (int x: r.best_way) {
-            outputFile << x << " ";
-        }
-        outputFile << endl;
-        outputFile << endl;
-        outputFile << "LP;czas;blad bezwzgledny;blad wzgledny" << endl;
-        for (int x = 0; x < randomTime[index].size(); x++) {
-            outputFile << x + 1 << ";" << randomTime[index][x] << ";" << absolutes[x] << ";" << relatives[x] << endl;
-        }
-        outputFile << endl;
-        cout << "Średni czas: " << stats[0] << "s" << endl;
-        cout << "Średni błąd bezwzględny: " << stats[1] << "s" << endl;
-        cout << "Średni błąd bezwzględny;" << stats[1] * 100 << "%" << endl;
-        cout << "Średni błąd względny: " << stats[2] * 100 << "%" << endl;
-        cout << "wykonano " << permutacje << " losowań" << endl;
-        cout << "Uzyskano wynik: " << r.result << endl;
-        if (nodes.size() < 16) {
-            cout << "Ścieżka z powyższym wynikiem: ";
-            for (int x: r.best_way) {
-                cout << x << " ";
+        statsOutput(calcStats(timeMeasurements),n.best_way);
+
+
+        timeMeasurements.clear();
+//      DFS
+        start = chrono::high_resolution_clock::now();
+        finish = chrono::high_resolution_clock::now();
+        cout << "DFS " << p.first << " w trakcie liczenia" << endl;
+        outputFile << "DFS" << endl;
+        for (int x = 0; x < config.repetitionsPerInstance; x++) {
+            start = chrono::high_resolution_clock::now();
+            d.time = start;
+            try {
+                d.findBestWay(nodes);
+            } catch (const std::runtime_error &e) {
+                std::cerr << "Błąd: " << e.what() << std::endl;
+                d.overTime = true;
+            }
+            finish = chrono::high_resolution_clock::now();
+            if (d.overTime) {
+                cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+            }
+            ms_double = finish - start;
+            timeMeasurements.push_back(ms_double.count() / 1000);
+
+            if (config.progressBar) {
+                progressBar(&progressSave, &progress, config.repetitionsPerInstance);
             }
         }
         cout << endl;
+
+        statsOutput(calcStats(timeMeasurements),d.best_way);
+
+
+        timeMeasurements.clear();
+//      BFS
+        start = chrono::high_resolution_clock::now();
+        finish = chrono::high_resolution_clock::now();
+        cout << "BFS " << p.first << " w trakcie liczenia" << endl;
+        outputFile << "BFS" << endl;
+        for (int x = 0; x < config.repetitionsPerInstance; x++) {
+            start = chrono::high_resolution_clock::now();
+            bfs.time = start;
+            try {
+                bfs.findBestWay(nodes);
+            } catch (const std::runtime_error &e) {
+                std::cerr << "Błąd: " << e.what() << std::endl;
+                bfs.overTime = true;
+            }
+            finish = chrono::high_resolution_clock::now();
+            if (bfs.overTime) {
+                cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+            }
+            ms_double = finish - start;
+            timeMeasurements.push_back(ms_double.count() / 1000);
+
+            if (config.progressBar) {
+                progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+            }
+        }
         cout << endl;
+
+        statsOutput(calcStats(timeMeasurements),bfs.best_way);
+
+
+        timeMeasurements.clear();
+//      LCFS
+        start = chrono::high_resolution_clock::now();
+        finish = chrono::high_resolution_clock::now();
+        cout << "LCFS " << p.first << " w trakcie liczenia" << endl;
+        outputFile << "LCFS" << endl;
+        for (int x = 0; x < config.repetitionsPerInstance; x++) {
+            start = chrono::high_resolution_clock::now();
+            l.time = start;
+            try {
+                l.findBestWay(nodes);
+            } catch (const std::runtime_error &e) {
+                std::cerr << "Błąd: " << e.what() << std::endl;
+                l.overTime = true;
+            }
+            finish = chrono::high_resolution_clock::now();
+            if (l.overTime) {
+                cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+            }
+            ms_double = finish - start;
+            timeMeasurements.push_back(ms_double.count() / 1000);
+
+            if (config.progressBar) {
+                progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+            }
+        }
         cout << endl;
+
+        statsOutput(calcStats(timeMeasurements),l.best_way);
     }
 
 }
@@ -288,4 +291,25 @@ vector<double> TSPSolver::calcStats(vector<double> time) {
     relatives = relative;
 
     return results;
+}
+
+void TSPSolver::statsOutput(vector<double> stats, vector<int> best_way) {
+    outputFile << "Średni czas;" << stats[0] << endl;
+    outputFile << "Średni błąd bezwzględny;" << stats[1] << "s" << endl;
+    outputFile << "Średni błąd bezwzględny;" << stats[1] * 100 << "%" << endl;
+    outputFile << "Średni błąd względny;" << stats[2] * 100 << "%" << endl;
+    outputFile << endl;
+    outputFile << "Uzyskano wynik: " << b.result << endl;
+    outputFile << "Ścieżka z powyższym wynikiem: ";
+    for (int x: best_way) {
+        outputFile << x << " ";
+    }
+    outputFile << endl;
+    outputFile << endl;
+    outputFile << "LP;czas;blad bezwzgledny;blad wzgledny" << endl;
+    for (int x = 0; x < timeMeasurements.size(); x++) {
+        outputFile << x + 1 << ";" << timeMeasurements[x] << ";" << absolutes[x] << ";" << relatives[x]
+                   << endl;
+    }
+    outputFile << endl;
 }

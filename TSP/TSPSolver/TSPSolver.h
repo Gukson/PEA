@@ -15,17 +15,29 @@
 #include "../../TSP/RandomNeighbour/RandomNeighbour.h"
 #include "../../config/configClass/Config.h"
 #include "../../data/data_loader/DataLoader.h"
-
+#include "../../TSP/BaB/DFS/DFS.h"
+#include "../../TSP/BaB/BFS/BFS.h"
+#include "../../TSP/BaB/LCFS/LCFS.h"
 using namespace std;
 class TSPSolver {
+private:
+    void statsOutput(vector<double> stats, vector<int> best_way);
+
 public:
+    //plik wyjsciowy
+    ofstream outputFile;
     //klasy
     BruteForce b = BruteForce();
     NearestNeighbour n = NearestNeighbour();
     RandomNeighbour r = RandomNeighbour();
+    DFS d = DFS();
+    BFS bfs = BFS();
+    LCFS l = LCFS();
 
     //czas
     chrono::duration<double, std::milli> ms_double;
+
+    vector<double> timeMeasurements = vector<double>();
     vector<vector<double>> bruteForceTime = vector<vector<double>>();
     vector<vector<double>> nearTime = vector<vector<double>>();
     vector<vector<double>> randomTime = vector<vector<double>>();
@@ -34,7 +46,7 @@ public:
 
     //funkcje
     void testAlgoritms(Config config);
-    void progressBar(int* progressSave,float* progress, int repetitions);
+    static void progressBar(int* progressSave,float* progress, int repetitions);
     vector<double> calcStats(vector<double> time);
 
 
