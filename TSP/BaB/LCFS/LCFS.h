@@ -6,12 +6,11 @@
 #include <vector>
 #include <unordered_set>
 #include "../../../Tree/Node/Node.h"
+#include "../../pomocnicze/usunWspolne.h"
 #include <queue>
 using namespace std;
 
 class LCFS {
-private:
-    void usunWspolne(vector<pair<Node*,int>>& A, vector<Node*>& B);
 public:
     struct Kolejkowicz {
         Node* node;

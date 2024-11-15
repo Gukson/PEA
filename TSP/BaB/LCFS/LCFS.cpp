@@ -4,22 +4,9 @@
 
 #include "LCFS.h"
 
-void LCFS::usunWspolne(vector<pair<Node*,int>>& A, vector<Node*>& B) {
-    unordered_set<int> values;
-    for(const auto& p: B){
-        values.insert(p->get_value());
-    }
-    A.erase(remove_if(A.begin(), A.end(),
-                      [&values](const pair<Node*,int>& p) {
-                          return p.first && values.count(p.first->get_value()) > 0;
-                      }),
-            A.end());
-    }
-
 void LCFS::lcfs(Node start, int size) {
     priority_queue<Kolejkowicz> pq;
     pq.push({&start,0});
-
 
     while(true){
         if(pq.size() == 0) break;
@@ -55,6 +42,9 @@ void LCFS::lcfs(Node start, int size) {
         for(auto &t: temp){
             vector<Node*> new_way = k.way;
             new_way.push_back(t.first);
+
+            //jeżeli aktualny koszt przekrocyz bądź zrówna się z aktualnie najlepszy konsztem, to mozemy pominąć tą trasę wiedząc, że nie będzie na pewno najlepsza.
+            if(k.cost + t.second >= result) continue;
 
             // Tworzymy nowy obiekt Kolejkowicz z aktualnym wierzchołkiem, nową ścieżką i zaktualizowanym kosztem
             Kolejkowicz u(t.first, new_way, k.cost + t.second);

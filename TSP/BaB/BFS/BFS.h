@@ -10,6 +10,7 @@
 #include <algorithm>
 #include "../../../Tree/Node/Node.h"
 #include "../../pomocnicze/usunWspolne.h"
+#include "../../../TSP/NearestNeighbour/NearestNeighbour.h"
 
 using namespace std;
 

@@ -4,14 +4,17 @@
 
 #include "BFS.h"
 
-//Z wektora A chcemy usunac wsyztskie wspolne wartości dla wektora B
 void BFS::bfs(Node start, int size) {
+
     vector<pair<vector<Node* >, int>> ways = {
             { { &start }, 0 }
     };
     for(int x = 0; x < size-1; x++) {
         vector<pair<vector<Node *>, int>> newWays = vector<pair<vector<Node *>, int>>();
         for (pair<vector<Node *>, int> &p: ways) {
+
+            if(p.second >= result) continue;
+
             //temp -> lista wierzchołków do których można pójśc i chcemy z niego usunąc wszytskei wierzchołki już odwiedzone
             vector<pair<Node *, int>> temp = p.first[p.first.size() - 1]->getVectorOfNodes();
             usunWspolne(temp, p.first);

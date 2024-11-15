@@ -10,9 +10,6 @@ int BruteForce::bruteForce(Node start, int sum, vector<int> visited, int count, 
         timeLimit) {
         throw std::runtime_error("przekroczono limit czasowy");
     }
-    if (sum > result) {
-        return INT_MAX;
-    }
 
     if (count == size && visited.size() == size) {
         for (pair<Node *, int> p: start.getVectorOfNodes()) {
