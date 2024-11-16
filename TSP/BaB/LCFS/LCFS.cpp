@@ -31,6 +31,7 @@ void LCFS::lcfs(Node start, int size) {
                     for(int x = 0; x < k.way.size(); x++){
                         best_way.push_back(k.way[x]->get_value());
                     }
+                    best_way.push_back(start.get_value());
                 }
             }
             pq.pop();

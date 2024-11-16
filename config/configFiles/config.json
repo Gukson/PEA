@@ -1,13 +1,43 @@
 {
   "files": [
     {
-      "file_name": "11nodes.txt",
-      "optimum": 312
+      "file_name": "4nodes.txt"
+    },
+    {
+      "file_name": "5nodes.txt"
+    },
+    {
+      "file_name": "6nodes.txt"
+    },
+    {
+      "file_name": "7nodes.txt"
+    },
+    {
+      "file_name": "8nodes.txt"
+    },
+    {
+      "file_name": "9nodes.txt"
+    },
+    {
+      "file_name": "10nodes.txt"
+    },
+    {
+      "file_name": "11nodes.txt"
     }
   ],
+  "algorithms":
+    {
+      "Bruteforce": true,
+      "Nearest-neighbour": true,
+      "Random": true,
+      "DFS": true,
+      "BFS": true,
+      "LCFS": true
+    },
   "max_time": 30,
   "repetitions_per_instance": 1,
-  "output_file": "test.txt",
+  "output_file": "macbook_kuby.txt",
   "progress_bar": true,
-  "show_nodes_in_console": true
+  "show_nodes_in_console": false,
+  "measurement_results_in_the_console" : false
 }

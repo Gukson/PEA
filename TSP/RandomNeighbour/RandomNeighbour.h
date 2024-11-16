@@ -10,6 +10,9 @@
 #include <algorithm>
 #include <random>
 #include "../../Tree/Node/Node.h"
+#include <algorithm>
+#include <chrono>
+#include <stdexcept>
 
 using namespace std;
 
@@ -20,7 +23,7 @@ public:
     std::chrono::time_point<std::chrono::high_resolution_clock> time;
     int result = INT_MAX;
     vector<int> best_way = vector<int>();
-    void randomNeighbour(int filesPermutation, vector<Node> Nodes);
+    void randomNeighbour( vector<Node> Nodes);
 };
 
 

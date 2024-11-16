@@ -21,7 +21,8 @@
 using namespace std;
 class TSPSolver {
 private:
-    void statsOutput(vector<double> stats, vector<int> best_way);
+    void statsOutput(vector<double> stats, vector<int> best_way, bool show);
+
 
 public:
     //plik wyjsciowy
@@ -46,6 +47,7 @@ public:
 
     //funkcje
     void testAlgoritms(Config config);
+    void singleTest(std::any& obj);
     static void progressBar(int* progressSave,float* progress, int repetitions);
     vector<double> calcStats(vector<double> time);
 

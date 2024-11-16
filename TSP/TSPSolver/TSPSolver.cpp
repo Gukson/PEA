@@ -7,30 +7,27 @@
 void TSPSolver::testAlgoritms(Config config) {
     outputFile.open("../data/output/" + config.outputFile, std::ios_base::app);
 
+    b.timeLimit = config.maxTime;
+    r.timeLimit = config.maxTime;
+    d.timeLimit = config.maxTime;
+    bfs.timeLimit = config.maxTime;
+    l.timeLimit = config.maxTime;
+
     for (int index = 0; index < config.files.size(); index++) {
-        outputFile << "Plik: " << config.files[index].first << endl;
+        outputFile << "Plik: " << config.files[index] << endl;
 
         //na początku trzeba zresetowac wszytskie zmienne
         b.result = INT_MAX;
         n.result = INT_MAX;
         r.result = INT_MAX;
 
-
-
-
-        b.timeLimit = config.maxTime;
-        r.timeLimit = config.maxTime;
-        d.timeLimit = config.maxTime;
-        bfs.timeLimit = config.maxTime;
-        l.timeLimit = config.maxTime;
-
-
-        pair<string, int> p = config.files[index];
+        string p = config.files[index];
 
         int progressSave = 0;
         float progress = 0.0;
         DataLoader dataLoader = DataLoader();
-        vector<Node> nodes = dataLoader.loadData(p.first);
+        vector<Node> nodes = dataLoader.loadData(p);
+
         //czy wyświelić wierzchołki w konsoli
         if (config.showNodesInConsole) {
             for (Node n: nodes) {
@@ -42,189 +39,211 @@ void TSPSolver::testAlgoritms(Config config) {
             }
         }
 
+        cout << "Wartośc rozwiązania optymalnego: " << dataLoader.optimum << endl;
 
-        timeMeasurements.clear();
-        //BruteForce
         auto start = chrono::high_resolution_clock::now();
         auto finish = chrono::high_resolution_clock::now();
-        cout << "BruteForce dla pliku " << p.first << " w trakcie liczenia" << endl;
-        outputFile << "BruteForce" << endl;
-        for (int x = 0; x < config.repetitionsPerInstance; x++) {
+
+        if(config.bruteForce){
+            timeMeasurements.clear();
             start = chrono::high_resolution_clock::now();
-            b.time = start;
-            try {
-                b.findBestWay(nodes);
-            } catch (const std::runtime_error &e) {
-                std::cerr << "Błąd: " << e.what() << std::endl;
-                b.overTime = true;
-            }
             finish = chrono::high_resolution_clock::now();
-            if (b.overTime) {
-                cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-                outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-            }
-            ms_double = finish - start;
-            timeMeasurements.push_back(ms_double.count() / 1000);
+            cout << "BruteForce dla pliku " << p << " w trakcie liczenia" << endl;
+            outputFile << "BruteForce" << endl;
+            for (int x = 0; x < config.repetitionsPerInstance; x++) {
+                start = chrono::high_resolution_clock::now();
+                b.time = start;
+                try {
+                    b.findBestWay(nodes);
+                } catch (const std::runtime_error &e) {
+                    std::cerr << "Błąd: " << e.what() << std::endl;
+                    b.overTime = true;
+                }
+                finish = chrono::high_resolution_clock::now();
 
-            if (config.progressBar) {
-                progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                ms_double = finish - start;
+                timeMeasurements.push_back(ms_double.count() / 1000);
+
+                if (config.progressBar) {
+                    progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                }
+                if (b.overTime) {
+                    cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    break;
+                }
             }
+            cout << endl;
+
+            statsOutput(calcStats(timeMeasurements),b.best_way,config.showInConsole);
         }
-        cout << endl;
 
-        statsOutput(calcStats(timeMeasurements),b.best_way);
+        if(config.nn){
+            timeMeasurements.clear();
+            cout << "NearestNeighbour dla pliku " << p << " w trakcie liczenia" << endl;
+            outputFile << "NearestNeighbour" << endl;
+            progressSave = 0;
+            progress = 0.0;
+            for (int x = 0; x < config.repetitionsPerInstance; x++) {
+                start = chrono::high_resolution_clock::now();
+                n.findBestWay(nodes);
+                finish = chrono::high_resolution_clock::now();
+                ms_double = finish - start;
+                timeMeasurements.push_back(ms_double.count() / 1000);
 
-        timeMeasurements.clear();
-        //NearestNeighbour
-        cout << "NearestNeighbour dla pliku " << p.first << " w trakcie liczenia" << endl;
-        outputFile << "NearestNeighbour" << endl;
-        progressSave = 0;
-        progress = 0.0;
-        for (int x = 0; x < config.repetitionsPerInstance; x++) {
+                if (config.progressBar) {
+                    progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                }
+            }
+            cout << endl;
+            statsOutput(calcStats(timeMeasurements),n.best_way,config.showInConsole);
+
+        }
+
+        if(config.radnom){
+            timeMeasurements.clear();
+            cout << "RandomNeighbour dla pliku " << p << " w trakcie liczenia" << endl;
+            outputFile << "RandomNeighbour" << endl;
+
+            progressSave = 0;
+            progress = 0.0;
+            for (int x = 0; x < config.repetitionsPerInstance; x++) {
+                start = chrono::high_resolution_clock::now();
+                r.time = start;
+                try {
+                    r.randomNeighbour(nodes);
+                } catch (const std::runtime_error &e) {
+                    std::cerr << "Błąd: " << e.what() << std::endl;
+                    r.overTime = true;
+                }
+                finish = chrono::high_resolution_clock::now();
+
+                ms_double = finish - start;
+                timeMeasurements.push_back(ms_double.count() / 1000);
+
+                if (config.progressBar) {
+                    progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                }
+                if (r.overTime) {
+                    cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    break;
+                }
+            }
+            cout << endl;
+            statsOutput(calcStats(timeMeasurements),n.best_way,config.showInConsole);
+        }
+
+        if(config.dfs){
+            timeMeasurements.clear();
+            progressSave = 0;
+            progress = 0.0;
             start = chrono::high_resolution_clock::now();
-            n.findBestWay(nodes);
             finish = chrono::high_resolution_clock::now();
-            ms_double = finish - start;
-            timeMeasurements.push_back(ms_double.count() / 1000);
+            cout << "DFS " << p << " w trakcie liczenia" << endl;
+            outputFile << "DFS" << endl;
+            for (int x = 0; x < config.repetitionsPerInstance; x++) {
+                start = chrono::high_resolution_clock::now();
+                d.time = start;
+                try {
+                    d.findBestWay(nodes);
+                } catch (const std::runtime_error &e) {
+                    std::cerr << "Błąd: " << e.what() << std::endl;
+                    d.overTime = true;
+                }
+                finish = chrono::high_resolution_clock::now();
 
-            if (config.progressBar) {
-                progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                ms_double = finish - start;
+                timeMeasurements.push_back(ms_double.count() / 1000);
+
+                if (config.progressBar) {
+                    progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                }
+
+                if (d.overTime) {
+                    cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    break;
+                }
             }
-        }
-        cout << endl;
-        statsOutput(calcStats(timeMeasurements),n.best_way);
+            cout << endl;
 
-
-        timeMeasurements.clear();
-//      RandomNeighbour
-        cout << "RandomNeighbour dla pliku " << p.first << " w trakcie liczenia" << endl;
-        outputFile << "RandomNeighbour" << endl;
-        long long permutacje = 1;
-        for (int z = 1; z < nodes.size() + 1; z++) {
-            permutacje *= z;
+            statsOutput(calcStats(timeMeasurements),d.best_way,config.showInConsole);
         }
 
-        progressSave = 0;
-        progress = 0.0;
-        for (int x = 0; x < config.repetitionsPerInstance; x++) {
+        if(config.bfs){
+            timeMeasurements.clear();
+            progressSave = 0;
+            progress = 0.0;
             start = chrono::high_resolution_clock::now();
-            r.time = start;
-            try {
-                r.randomNeighbour(permutacje, nodes);
-            } catch (const std::runtime_error &e) {
-                std::cerr << "Błąd: " << e.what() << std::endl;
-                r.overTime = true;
-            }
             finish = chrono::high_resolution_clock::now();
-            if (r.overTime) {
-                cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-                outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-            }
-            ms_double = finish - start;
-            timeMeasurements.push_back(ms_double.count() / 1000);
+            cout << "BFS " << p << " w trakcie liczenia" << endl;
+            outputFile << "BFS" << endl;
+            for (int x = 0; x < config.repetitionsPerInstance; x++) {
+                start = chrono::high_resolution_clock::now();
+                bfs.time = start;
+                try {
+                    bfs.findBestWay(nodes);
+                } catch (const std::runtime_error &e) {
+                    std::cerr << "Błąd: " << e.what() << std::endl;
+                    bfs.overTime = true;
+                }
+                finish = chrono::high_resolution_clock::now();
 
-            if (config.progressBar) {
-                progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                ms_double = finish - start;
+                timeMeasurements.push_back(ms_double.count() / 1000);
+
+                if (config.progressBar) {
+                    progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                }
+                if (bfs.overTime) {
+                    cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    break;
+                }
             }
+            cout << endl;
+
+            statsOutput(calcStats(timeMeasurements),bfs.best_way,config.showInConsole);
+
         }
-        cout << endl;
-        statsOutput(calcStats(timeMeasurements),n.best_way);
 
-
-        timeMeasurements.clear();
-//      DFS
-        start = chrono::high_resolution_clock::now();
-        finish = chrono::high_resolution_clock::now();
-        cout << "DFS " << p.first << " w trakcie liczenia" << endl;
-        outputFile << "DFS" << endl;
-        for (int x = 0; x < config.repetitionsPerInstance; x++) {
+        if(config.lcfs){
+            timeMeasurements.clear();
+            progressSave = 0;
+            progress = 0.0;
             start = chrono::high_resolution_clock::now();
-            d.time = start;
-            try {
-                d.findBestWay(nodes);
-            } catch (const std::runtime_error &e) {
-                std::cerr << "Błąd: " << e.what() << std::endl;
-                d.overTime = true;
-            }
             finish = chrono::high_resolution_clock::now();
-            if (d.overTime) {
-                cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-                outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-            }
-            ms_double = finish - start;
-            timeMeasurements.push_back(ms_double.count() / 1000);
+            cout << "LCFS " << p << " w trakcie liczenia" << endl;
+            outputFile << "LCFS" << endl;
+            for (int x = 0; x < config.repetitionsPerInstance; x++) {
+                start = chrono::high_resolution_clock::now();
+                l.time = start;
+                try {
+                    l.findBestWay(nodes);
+                } catch (const std::runtime_error &e) {
+                    std::cerr << "Błąd: " << e.what() << std::endl;
+                    l.overTime = true;
+                }
+                finish = chrono::high_resolution_clock::now();
 
-            if (config.progressBar) {
-                progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                ms_double = finish - start;
+                timeMeasurements.push_back(ms_double.count() / 1000);
+
+                if (config.progressBar) {
+                    progressBar(&progressSave, &progress, config.repetitionsPerInstance);
+                }
+                if (l.overTime) {
+                    cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
+                    break;
+                }
             }
+            cout << endl;
+
+            statsOutput(calcStats(timeMeasurements),l.best_way,config.showInConsole);
         }
-        cout << endl;
 
-        statsOutput(calcStats(timeMeasurements),d.best_way);
-
-
-        timeMeasurements.clear();
-//      BFS
-        start = chrono::high_resolution_clock::now();
-        finish = chrono::high_resolution_clock::now();
-        cout << "BFS " << p.first << " w trakcie liczenia" << endl;
-        outputFile << "BFS" << endl;
-        for (int x = 0; x < config.repetitionsPerInstance; x++) {
-            start = chrono::high_resolution_clock::now();
-            bfs.time = start;
-            try {
-                bfs.findBestWay(nodes);
-            } catch (const std::runtime_error &e) {
-                std::cerr << "Błąd: " << e.what() << std::endl;
-                bfs.overTime = true;
-            }
-            finish = chrono::high_resolution_clock::now();
-            if (bfs.overTime) {
-                cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-                outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-            }
-            ms_double = finish - start;
-            timeMeasurements.push_back(ms_double.count() / 1000);
-
-            if (config.progressBar) {
-                progressBar(&progressSave, &progress, config.repetitionsPerInstance);
-            }
-        }
-        cout << endl;
-
-        statsOutput(calcStats(timeMeasurements),bfs.best_way);
-
-
-        timeMeasurements.clear();
-//      LCFS
-        start = chrono::high_resolution_clock::now();
-        finish = chrono::high_resolution_clock::now();
-        cout << "LCFS " << p.first << " w trakcie liczenia" << endl;
-        outputFile << "LCFS" << endl;
-        for (int x = 0; x < config.repetitionsPerInstance; x++) {
-            start = chrono::high_resolution_clock::now();
-            l.time = start;
-            try {
-                l.findBestWay(nodes);
-            } catch (const std::runtime_error &e) {
-                std::cerr << "Błąd: " << e.what() << std::endl;
-                l.overTime = true;
-            }
-            finish = chrono::high_resolution_clock::now();
-            if (l.overTime) {
-                cout << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-                outputFile << "Przekroczono limit " << config.maxTime << "minut!" << endl;
-            }
-            ms_double = finish - start;
-            timeMeasurements.push_back(ms_double.count() / 1000);
-
-            if (config.progressBar) {
-                progressBar(&progressSave, &progress, config.repetitionsPerInstance);
-            }
-        }
-        cout << endl;
-
-        statsOutput(calcStats(timeMeasurements),l.best_way);
     }
 
 }
@@ -293,7 +312,7 @@ vector<double> TSPSolver::calcStats(vector<double> time) {
     return results;
 }
 
-void TSPSolver::statsOutput(vector<double> stats, vector<int> best_way) {
+void TSPSolver::statsOutput(vector<double> stats, vector<int> best_way, bool show) {
     outputFile << "Średni czas;" << stats[0] << endl;
     outputFile << "Średni błąd bezwzględny;" << stats[1] << "s" << endl;
     outputFile << "Średni błąd bezwzględny;" << stats[1] * 100 << "%" << endl;
@@ -312,4 +331,24 @@ void TSPSolver::statsOutput(vector<double> stats, vector<int> best_way) {
                    << endl;
     }
     outputFile << endl;
+
+    if(show){
+        cout << "Średni czas;" << stats[0] << endl;
+        cout << "Średni błąd bezwzględny;" << stats[1] << "s" << endl;
+        cout << "Średni błąd bezwzględny;" << stats[1] * 100 << "%" << endl;
+        cout << "Średni błąd względny;" << stats[2] * 100 << "%" << endl;
+        cout << endl;
+        cout << "Uzyskano wynik: " << b.result << endl;
+        cout << "Ścieżka z powyższym wynikiem: ";
+        for (int x: best_way) {
+            cout << x << " ";
+        }
+        cout << endl;
+        cout << "LP czas blad bezwzgledny blad wzgledny" << endl;
+        for (int x = 0; x < timeMeasurements.size(); x++) {
+            cout << x + 1 << ";" << timeMeasurements[x] << ";" << absolutes[x] << ";" << relatives[x]
+                       << endl;
+        }
+        cout << endl;
+    }
 }

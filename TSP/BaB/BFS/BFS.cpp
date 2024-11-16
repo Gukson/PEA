@@ -66,6 +66,7 @@ void BFS::bfs(Node start, int size) {
 }
 
 void BFS::findBestWay(vector<Node> nodes) {
+    best_way.clear();
     overTime = false;
     vector<int> best_scores = vector<int>();
     vector<vector<int> > best_ways = vector<vector<int> >();
