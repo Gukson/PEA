@@ -1865,3 +1865,50 @@ LP;czas;blad bezwzgledny;blad wzgledny
 
 Plik: async13nodes.txt
 DFS
+Średni czas;945.493
+Średni błąd bezwzględny;756.394s
+Średni błąd bezwzględny;75639.4%
+Średni błąd względny;80%
+
+Uzyskano wynik: 2147483647
+Ścieżka z powyższym wynikiem: 0 1 2 3 4 5 6 7 8 9 10 11 12 0
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;1783.93;838.439;0.886774
+2;6.46e-05;945.493;1
+3;1471.94;526.449;0.556799
+4;6.55e-05;945.493;1
+5;1471.59;526.098;0.556427
+
+BFS
+Przekroczono limit 30minut!
+Średni czas;407.229
+Średni błąd bezwzględny;651.567s
+Średni błąd bezwzględny;65156.7%
+Średni błąd względny;160%
+
+Uzyskano wynik: 2147483647
+Ścieżka z powyższym wynikiem:
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;6.99e-05;407.229;1
+2;5.79e-05;407.229;1
+3;5.67e-05;407.229;1
+4;5.51e-05;407.229;1
+5;2036.15;1628.92;4
+
+LCFS
+Przekroczono limit 30minut!
+Średni czas;824.4
+Średni błąd bezwzględny;1099.2s
+Średni błąd bezwzględny;109920%
+Średni błąd względny;133.333%
+
+Uzyskano wynik: 2147483647
+Ścieżka z powyższym wynikiem:
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.0008742;824.399;0.999999
+2;7.83e-05;824.4;1
+3;2473.2;1648.8;2
+
