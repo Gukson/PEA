@@ -2,6 +2,7 @@
 // Created by Kuba on 04/10/2024.
 //
 
+#include <algorithm>
 #include "BruteForce.h"
 
 int BruteForce::bruteForce(Node start, int sum, vector<int> visited, int count, int size, int startNumb) {
@@ -41,16 +42,16 @@ void BruteForce::findBestWay(vector<Node> nodes) {
     overTime = false;
     vector<int> best_scores = vector<int>();
     vector<vector<int> > best_ways = vector<vector<int> >();
-    for (int x = 0; x < nodes.size(); x++) {
-        vector<int> visited = vector<int>();
-        visited.push_back(x);
-        bruteForce(nodes[x], 0, visited, 1, nodes.size(), x);
-        best_scores.push_back(result);
-        best_ways.push_back(best_way);
-        result = INT_MAX;
-        best_way.clear();
-    }
-    auto min_it = std::min_element(best_scores.begin(), best_scores.end());
+
+    vector<int> visited = vector<int>();
+    visited.push_back(0);
+    bruteForce(nodes[0], 0, visited, 1, nodes.size(), 0);
+    best_scores.push_back(result);
+    best_ways.push_back(best_way);
+    result = INT_MAX;
+    best_way.clear();
+
+    auto min_it = min_element(best_scores.begin(), best_scores.end());
     result = *min_it;
     auto it = std::find(best_scores.begin(), best_scores.end(), *min_it);
     int index = distance(best_scores.begin(), it);
