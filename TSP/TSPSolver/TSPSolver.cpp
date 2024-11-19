@@ -104,7 +104,7 @@ void TSPSolver::testAlgoritms(Config config) {
             timeMeasurements.clear();
             cout << "RandomNeighbour dla pliku " << p << " w trakcie liczenia" << endl;
             outputFile << "RandomNeighbour" << endl;
-
+            r.optimum = dataLoader.optimum;
             progressSave = 0;
             progress = 0.0;
             for (int x = 0; x < config.repetitionsPerInstance; x++) {
@@ -244,6 +244,16 @@ void TSPSolver::testAlgoritms(Config config) {
             statsOutput(calcStats(timeMeasurements),l.best_way,config.showInConsole);
         }
 
+        // Jeśli w Node masz wskaźniki, np. vector<Node*> children
+        nodes.clear();          // Usuwa wszystkie elementy z wektora
+        nodes.shrink_to_fit();  // Redukuje rozmiar alokowanej pamięci wektora do aktualnego rozmiaru
+
+
+// Teraz możesz bezpiecznie wyczyścić vector
+        nodes.clear();
+        nodes.shrink_to_fit(); // Upewniamy się, że pamięć jest zwolniona
+
+
     }
 
 }
@@ -347,7 +357,7 @@ void TSPSolver::statsOutput(vector<double> stats, vector<int> best_way, bool sho
         cout << "LP czas blad bezwzgledny blad wzgledny" << endl;
         for (int x = 0; x < timeMeasurements.size(); x++) {
             cout << x + 1 << ";" << timeMeasurements[x] << ";" << absolutes[x] << ";" << relatives[x]
-                       << endl;
+                 << endl;
         }
         cout << endl;
     }

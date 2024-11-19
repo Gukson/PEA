@@ -20,6 +20,7 @@ class RandomNeighbour {
 public:
     bool overTime = false;
     int timeLimit;
+    int optimum;
     std::chrono::time_point<std::chrono::high_resolution_clock> time;
     int result = INT_MAX;
     vector<int> best_way = vector<int>();

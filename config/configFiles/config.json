@@ -23,20 +23,56 @@
     },
     {
       "file_name": "11nodes.txt"
+    },
+    {
+      "file_name": "12nodes.txt"
+    },
+    {
+      "file_name": "13nodes.txt"
+    },
+    {
+      "file_name": "async4nodes.txt"
+    },
+    {
+      "file_name": "async5nodes.txt"
+    },
+    {
+      "file_name": "async6nodes.txt"
+    },
+    {
+      "file_name": "async7nodes.txt"
+    },
+    {
+      "file_name": "async8nodes.txt"
+    },
+    {
+      "file_name": "async9nodes.txt"
+    },
+    {
+      "file_name": "async10nodes.txt"
+    },
+    {
+      "file_name": "async11nodes.txt"
+    },
+    {
+      "file_name": "async12nodes.txt"
+    },
+    {
+      "file_name": "async13nodes.txt"
     }
   ],
   "algorithms":
-    {
-      "Bruteforce": true,
-      "Nearest-neighbour": true,
-      "Random": true,
-      "DFS": true,
-      "BFS": true,
-      "LCFS": true
-    },
+  {
+    "Bruteforce": true,
+    "Nearest-neighbour": true,
+    "Random": true,
+    "DFS": true,
+    "BFS": true,
+    "LCFS": true
+  },
   "max_time": 30,
-  "repetitions_per_instance": 1,
-  "output_file": "macbook_kuby.txt",
+  "repetitions_per_instance": 5,
+  "output_file": "windows.txt",
   "progress_bar": true,
   "show_nodes_in_console": false,
   "measurement_results_in_the_console" : false
