@@ -46,18 +46,18 @@ void DFS::findBestWay(vector<Node> nodes) {
     vector<int> best_scores = vector<int>();
     vector<vector<int> > best_ways = vector<vector<int> >();
     NearestNeighbour n = NearestNeighbour();
-    for (int x = 0; x < nodes.size(); x++) {
-        vector<Node*> visited2 = vector<Node*>();
-        n.nearestNeighbour(nodes[x],nodes.size(),visited2);
-        result = n.result;
-        vector<int> visited = vector<int>();
-        visited.push_back(x);
-        dfs(nodes[x], 0, visited, 1, nodes.size(), x);
-        best_scores.push_back(result);
-        best_ways.push_back(best_way);
-        result = INT_MAX;
-        best_way.clear();
-    }
+
+    vector<Node*> visited2 = vector<Node*>();
+    n.nearestNeighbour(&nodes[0],nodes.size(),visited2);
+    result = n.result;
+    vector<int> visited = vector<int>();
+    visited.push_back(0);
+    dfs(nodes[0], 0, visited, 1, nodes.size(), 0);
+    best_scores.push_back(result);
+    best_ways.push_back(best_way);
+    result = INT_MAX;
+    best_way.clear();
+
     auto min_it = std::min_element(best_scores.begin(), best_scores.end());
     result = *min_it;
     auto it = std::find(best_scores.begin(), best_scores.end(), *min_it);

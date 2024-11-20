@@ -2,63 +2,6 @@
   "files": [
     {
       "file_name": "4nodes.txt"
-    },
-    {
-      "file_name": "5nodes.txt"
-    },
-    {
-      "file_name": "6nodes.txt"
-    },
-    {
-      "file_name": "7nodes.txt"
-    },
-    {
-      "file_name": "8nodes.txt"
-    },
-    {
-      "file_name": "9nodes.txt"
-    },
-    {
-      "file_name": "10nodes.txt"
-    },
-    {
-      "file_name": "11nodes.txt"
-    },
-    {
-      "file_name": "12nodes.txt"
-    },
-    {
-      "file_name": "13nodes.txt"
-    },
-    {
-      "file_name": "async4nodes.txt"
-    },
-    {
-      "file_name": "async5nodes.txt"
-    },
-    {
-      "file_name": "async6nodes.txt"
-    },
-    {
-      "file_name": "async7nodes.txt"
-    },
-    {
-      "file_name": "async8nodes.txt"
-    },
-    {
-      "file_name": "async9nodes.txt"
-    },
-    {
-      "file_name": "async10nodes.txt"
-    },
-    {
-      "file_name": "async11nodes.txt"
-    },
-    {
-      "file_name": "async12nodes.txt"
-    },
-    {
-      "file_name": "async13nodes.txt"
     }
   ],
   "algorithms":
@@ -72,7 +15,7 @@
   },
   "max_time": 30,
   "repetitions_per_instance": 5,
-  "output_file": "windows.txt",
+  "output_file": "123.txt",
   "progress_bar": true,
   "show_nodes_in_console": false,
   "measurement_results_in_the_console" : false

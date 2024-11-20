@@ -1,13 +1,13 @@
 #include "NearestNeighbour.h"
 
-void NearestNeighbour::nearestNeighbour(Node start, int size, vector<Node*> visited) {
+void NearestNeighbour::nearestNeighbour(Node *start, int size, vector<Node*> visited) {
     int sum = 0;
     int count = 1;
 
-    visited.push_back(&start);
-    Node current_Node = start;
+    visited.push_back(start);
+    Node* current_Node = start;
     while (count != size){
-        vector<pair<Node*, int>> nodes = current_Node.getVectorOfNodes();
+        vector<pair<Node*, int>> nodes = current_Node->getVectorOfNodes();
         usunWspolne(nodes,visited);
 
         std::sort(nodes.begin(), nodes.end(), [](const std::pair<Node*, int>& a, const std::pair<Node*, int>& b) {
@@ -16,18 +16,18 @@ void NearestNeighbour::nearestNeighbour(Node start, int size, vector<Node*> visi
 
         visited.push_back(nodes[0].first);
         sum += nodes[0].second;
-        current_Node = *nodes[0].first;
+        current_Node = nodes[0].first;
         count += 1;
     }
 
-    auto it = std::find_if(current_Node.getVectorOfNodes().begin(), current_Node.getVectorOfNodes().end(), [&start](const std::pair<Node*, int>& p) {
-        return p.first->get_value() == start.get_value();  // Sprawdzamy, czy wartość w first.get_value() jest równa start.get_value()
+    auto it = std::find_if(current_Node->getVectorOfNodes().begin(), current_Node->getVectorOfNodes().end(), [&start](const std::pair<Node*, int>& p) {
+        return p.first->get_value() == start->get_value();  // Sprawdzamy, czy wartość w first.get_value() jest równa start.get_value()
     });
 
-    if (it != current_Node.getVectorOfNodes().end()) {
-        int index = std::distance(current_Node.getVectorOfNodes().begin(), it);
-        visited.push_back(&start);
-        sum += current_Node.getVectorOfNodes()[index].second;
+    if (it != current_Node->getVectorOfNodes().end()) {
+        int index = std::distance(current_Node->getVectorOfNodes().begin(), it);
+        visited.push_back(start);
+        sum += current_Node->getVectorOfNodes()[index].second;
         if(sum < result){
             result = sum;
             best_way.clear();
@@ -41,7 +41,7 @@ void NearestNeighbour::findBestWay(vector<Node> nodes) {
     vector<vector<int> > best_ways = vector<vector<int> >();
     for(int x = 0; x < nodes.size(); x++){
         vector<Node*> visited = vector<Node*>();
-        nearestNeighbour(nodes[x], nodes.size(),visited);
+        nearestNeighbour(&nodes[x], nodes.size(),visited);
         best_scores.push_back(result);
         best_ways.push_back(best_way);
         result = INT_MAX;

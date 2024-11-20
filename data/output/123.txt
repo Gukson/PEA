@@ -1,0 +1,194 @@
+Plik: 4nodes.txt
+BruteForce
+Średni czas;0.0001022
+Średni błąd bezwzględny;9.96e-06s
+Średni błąd bezwzględny;0.000996%
+Średni błąd względny;9.7456%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 0 3 2 1 0 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.0001271;2.49e-05;0.24364
+2;9.87e-05;3.5e-06;0.0342466
+3;9.8e-05;4.2e-06;0.0410959
+4;9.84e-05;3.8e-06;0.037182
+5;8.88e-05;1.34e-05;0.131115
+
+NearestNeighbour
+Średni czas;5.1e-05
+Średni błąd bezwzględny;6e-06s
+Średni błąd bezwzględny;0.0006%
+Średni błąd względny;11.7647%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 2 0 1 3 2 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;5.36e-05;2.6e-06;0.0509804
+2;3.74e-05;1.36e-05;0.266667
+3;4.96e-05;1.4e-06;0.027451
+4;5.66e-05;5.6e-06;0.109804
+5;5.78e-05;6.8e-06;0.133333
+
+RandomNeighbour
+Średni czas;0.00018624
+Średni błąd bezwzględny;0.000242744s
+Średni błąd bezwzględny;0.0242744%
+Średni błąd względny;130.339%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 2 0 1 3 2 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.0007931;0.00060686;3.25848
+2;4.06e-05;0.00014564;0.782002
+3;3.99e-05;0.00014634;0.78576
+4;3.03e-05;0.00015594;0.837307
+5;2.73e-05;0.00015894;0.853415
+
+DFS
+Średni czas;7.906e-05
+Średni błąd bezwzględny;2.3512e-05s
+Średni błąd bezwzględny;0.0023512%
+Średni błąd względny;29.7394%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.0001272;4.814e-05;0.608905
+2;4.2e-05;3.706e-05;0.468758
+3;8.97e-05;1.064e-05;0.134581
+4;6.49e-05;1.416e-05;0.179104
+5;7.15e-05;7.56e-06;0.0956236
+
+BFS
+Średni czas;9.83e-05
+Średni błąd bezwzględny;3.104e-05s
+Średni błąd bezwzględny;0.003104%
+Średni błąd względny;31.5768%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 0 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;7.45e-05;2.38e-05;0.242116
+2;0.0001473;4.9e-05;0.498474
+3;0.0001038;5.5e-06;0.0559512
+4;0.0001214;2.31e-05;0.234995
+5;4.45e-05;5.38e-05;0.547304
+
+LCFS
+Średni czas;4.684e-05
+Średni błąd bezwzględny;2.4088e-05s
+Średni błąd bezwzględny;0.0024088%
+Średni błąd względny;51.4261%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;2.18e-05;2.504e-05;0.534586
+2;2.1e-05;2.584e-05;0.551665
+3;5.3e-05;6.16e-06;0.131512
+4;3.75e-05;9.34e-06;0.199402
+5;0.0001009;5.406e-05;1.15414
+
+Plik: 4nodes.txt
+BruteForce
+Średni czas;9.81e-05
+Średni błąd bezwzględny;1.168e-05s
+Średni błąd bezwzględny;0.001168%
+Średni błąd względny;11.9062%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 0 3 2 1 0 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.0001214;2.33e-05;0.237513
+2;0.000104;5.9e-06;0.0601427
+3;9.25e-05;5.6e-06;0.0570846
+4;8.97e-05;8.4e-06;0.0856269
+5;8.29e-05;1.52e-05;0.154944
+
+NearestNeighbour
+Średni czas;4.014e-05
+Średni błąd bezwzględny;4.664e-06s
+Średni błąd bezwzględny;0.0004664%
+Średni błąd względny;11.6193%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 1 0 2 3 1 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;5.18e-05;1.166e-05;0.290483
+2;3.79e-05;2.24e-06;0.0558047
+3;3.75e-05;2.64e-06;0.0657698
+4;3.61e-05;4.04e-06;0.100648
+5;3.74e-05;2.74e-06;0.0682611
+
+RandomNeighbour
+Średni czas;0.00017478
+Średni błąd bezwzględny;0.000235048s
+Średni błąd bezwzględny;0.0235048%
+Średni błąd względny;134.482%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 1 0 2 3 1 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;0.0007624;0.00058762;3.36206
+2;2.52e-05;0.00014958;0.855819
+3;2.78e-05;0.00014698;0.840943
+4;2.81e-05;0.00014668;0.839226
+5;3.04e-05;0.00014438;0.826067
+
+DFS
+Średni czas;3.332e-05
+Średni błąd bezwzględny;8.536e-06s
+Średni błąd bezwzględny;0.0008536%
+Średni błąd względny;25.6182%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 0 3 2 1 0 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;4.2e-05;8.68e-06;0.260504
+2;4.29e-05;9.58e-06;0.287515
+3;3e-05;3.32e-06;0.0996399
+4;3.64e-05;3.08e-06;0.092437
+5;1.53e-05;1.802e-05;0.540816
+
+BFS
+Średni czas;4.662e-05
+Średni błąd bezwzględny;2.1056e-05s
+Średni błąd bezwzględny;0.0021056%
+Średni błąd względny;45.1652%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 0 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;6.71e-05;2.048e-05;0.439296
+2;6.83e-05;2.168e-05;0.465036
+3;5.71e-05;1.048e-05;0.224796
+4;1.83e-05;2.832e-05;0.607465
+5;2.23e-05;2.432e-05;0.521665
+
+LCFS
+Średni czas;5.816e-05
+Średni błąd bezwzględny;2.8968e-05s
+Średni błąd bezwzględny;0.0028968%
+Średni błąd względny;49.8074%
+
+Uzyskano wynik: 140
+Ścieżka z powyższym wynikiem: 
+
+LP;czas;blad bezwzgledny;blad wzgledny
+1;7.99e-05;2.174e-05;0.373796
+2;2.1e-05;3.716e-05;0.638927
+3;8.15e-05;2.334e-05;0.401307
+4;2.29e-05;3.526e-05;0.606259
+5;8.55e-05;2.734e-05;0.470083
+

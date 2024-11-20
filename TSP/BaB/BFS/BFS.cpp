@@ -71,23 +71,23 @@ void BFS::findBestWay(vector<Node> nodes) {
     vector<int> best_scores = vector<int>();
     vector<vector<int> > best_ways = vector<vector<int> >();
     NearestNeighbour n = NearestNeighbour();
-    for (int x = 0; x < nodes.size(); x++) {
-        vector<Node*> visited2 = vector<Node*>();
 
-        //liczenie NN jako ograniczenie górne
-        n.nearestNeighbour(nodes[x],nodes.size(),visited2);
-        result = n.result;
+    vector<Node*> visited2 = vector<Node*>();
 
-        bfs(nodes[x], nodes.size());
+    //liczenie NN jako ograniczenie górne
+    n.nearestNeighbour(&nodes[0],nodes.size(),visited2);
+    result = n.result;
 
-        //zapisywanie wyników
-        best_scores.push_back(result);
-        best_ways.push_back(best_way);
+    bfs(nodes[0], nodes.size());
 
-        //czyszczenie
-        result = INT_MAX;
-        best_way.clear();
-    }
+    //zapisywanie wyników
+    best_scores.push_back(result);
+    best_ways.push_back(best_way);
+
+    //czyszczenie
+    result = INT_MAX;
+    best_way.clear();
+
     auto min_it = std::min_element(best_scores.begin(), best_scores.end());
     result = *min_it;
     auto it = std::find(best_scores.begin(), best_scores.end(), *min_it);

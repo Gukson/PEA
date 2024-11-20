@@ -2,6 +2,7 @@
 // Created by Kuba on 14/11/2024.
 //
 
+#include <algorithm>
 #include "usunWspolne.h"
 
 void usunWspolne(vector<pair<Node*,int>>& A, vector<Node*>& B) {

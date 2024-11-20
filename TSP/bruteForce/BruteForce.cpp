@@ -3,6 +3,7 @@
 //
 
 #include "BruteForce.h"
+#include <algorithm>
 
 int BruteForce::bruteForce(Node start, int sum, vector<int> visited, int count, int size, int startNumb) {
 

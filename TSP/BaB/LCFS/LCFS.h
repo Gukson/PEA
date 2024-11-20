@@ -9,6 +9,8 @@
 #include "../../pomocnicze/usunWspolne.h"
 #include "../../../TSP/NearestNeighbour/NearestNeighbour.h"
 #include <queue>
+#include <chrono>
+
 using namespace std;
 
 class LCFS {
