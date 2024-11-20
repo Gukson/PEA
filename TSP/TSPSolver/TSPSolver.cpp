@@ -75,7 +75,7 @@ void TSPSolver::testAlgoritms(Config config) {
             }
             cout << endl;
 
-            statsOutput(calcStats(timeMeasurements),b.best_way,config.showInConsole);
+            statsOutput(calcStats(timeMeasurements),b.best_way,b.result,config.showInConsole);
         }
 
         if(config.nn){
@@ -96,7 +96,7 @@ void TSPSolver::testAlgoritms(Config config) {
                 }
             }
             cout << endl;
-            statsOutput(calcStats(timeMeasurements),n.best_way,config.showInConsole);
+            statsOutput(calcStats(timeMeasurements),n.best_way,n.result,config.showInConsole);
 
         }
 
@@ -131,7 +131,7 @@ void TSPSolver::testAlgoritms(Config config) {
                 }
             }
             cout << endl;
-            statsOutput(calcStats(timeMeasurements),n.best_way,config.showInConsole);
+            statsOutput(calcStats(timeMeasurements),n.best_way,n.result,config.showInConsole);
         }
 
         if(config.dfs){
@@ -168,7 +168,7 @@ void TSPSolver::testAlgoritms(Config config) {
             }
             cout << endl;
 
-            statsOutput(calcStats(timeMeasurements),d.best_way,config.showInConsole);
+            statsOutput(calcStats(timeMeasurements),d.best_way,d.result,config.showInConsole);
         }
 
         if(config.bfs){
@@ -204,7 +204,7 @@ void TSPSolver::testAlgoritms(Config config) {
             }
             cout << endl;
 
-            statsOutput(calcStats(timeMeasurements),bfs.best_way,config.showInConsole);
+            statsOutput(calcStats(timeMeasurements),bfs.best_way,bfs.result,config.showInConsole);
 
         }
 
@@ -241,7 +241,7 @@ void TSPSolver::testAlgoritms(Config config) {
             }
             cout << endl;
 
-            statsOutput(calcStats(timeMeasurements),l.best_way,config.showInConsole);
+            statsOutput(calcStats(timeMeasurements),l.best_way,l.result,config.showInConsole);
         }
 
         // Jeśli w Node masz wskaźniki, np. vector<Node*> children
@@ -322,13 +322,13 @@ vector<double> TSPSolver::calcStats(vector<double> time) {
     return results;
 }
 
-void TSPSolver::statsOutput(vector<double> stats, vector<int> best_way, bool show) {
+void TSPSolver::statsOutput(vector<double> stats, vector<int> best_way, int wynik, bool show) {
     outputFile << "Średni czas;" << stats[0] << endl;
     outputFile << "Średni błąd bezwzględny;" << stats[1] << "s" << endl;
     outputFile << "Średni błąd bezwzględny;" << stats[1] * 100 << "%" << endl;
     outputFile << "Średni błąd względny;" << stats[2] * 100 << "%" << endl;
     outputFile << endl;
-    outputFile << "Uzyskano wynik: " << b.result << endl;
+    outputFile << "Uzyskano wynik: " << wynik << endl;
     outputFile << "Ścieżka z powyższym wynikiem: ";
     for (int x: best_way) {
         outputFile << x << " ";
@@ -348,7 +348,7 @@ void TSPSolver::statsOutput(vector<double> stats, vector<int> best_way, bool sho
         cout << "Średni błąd bezwzględny;" << stats[1] * 100 << "%" << endl;
         cout << "Średni błąd względny;" << stats[2] * 100 << "%" << endl;
         cout << endl;
-        cout << "Uzyskano wynik: " << b.result << endl;
+        cout << "Uzyskano wynik: " << wynik << endl;
         cout << "Ścieżka z powyższym wynikiem: ";
         for (int x: best_way) {
             cout << x << " ";
