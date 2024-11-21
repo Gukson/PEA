@@ -4,6 +4,7 @@
 
 #include "Config.h"
 
+
 void Config::openJSON(string filename) {
     ifstream jsonFile;
     jsonFile.open("../config/configFiles/"+filename);

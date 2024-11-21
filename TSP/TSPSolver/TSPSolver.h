@@ -21,7 +21,7 @@
 using namespace std;
 class TSPSolver {
 private:
-    void statsOutput(vector<double> stats, vector<int> best_way, bool show);
+    void statsOutput(vector<double> stats, vector<int> best_way, int wynik, bool show, int bestWynik);
 
 
 public:

@@ -8,6 +8,7 @@
 #include <vector>
 #include "../../Tree/Node/Node.h"
 #include <unordered_set>
+#include <algorithm>
 
 using namespace std;
 

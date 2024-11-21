@@ -75,7 +75,7 @@ void LCFS::findBestWay(vector<Node> nodes) {
     vector<Node*> visited2 = vector<Node*>();
 
     // Liczymy wynik za pomocą algorytmu NN jako ograniczenie górne
-    n.nearestNeighbour(&nodes[0], nodes.size(), visited2);
+    n.nearestNeighbour(&nodes[0], nodes.size(), visited2,0,&nodes[0],1);
     result = n.result;
 
     lcfs(nodes[0], nodes.size());
