@@ -131,7 +131,7 @@ void TSPSolver::testAlgoritms(Config config) {
                 }
             }
             cout << endl;
-            statsOutput(calcStats(timeMeasurements),n.best_way,n.result,config.showInConsole,dataLoader.optimum);
+            statsOutput(calcStats(timeMeasurements),r.best_way,r.result,config.showInConsole,dataLoader.optimum);
         }
 
         if(config.dfs){

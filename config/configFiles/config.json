@@ -1,25 +1,22 @@
 {
   "files": [
     {
-      "file_name": "7nodes.txt"
-    },
-    {
-      "file_name": "8nodes.txt"
+      "file_name": "11nodes.txt"
     }
   ],
   "algorithms":
   {
-    "Bruteforce": true,
-    "Nearest-neighbour": true,
-    "Random": true,
+    "Bruteforce": false,
+    "Nearest-neighbour": false,
+    "Random": false,
     "DFS": true,
     "BFS": true,
     "LCFS": true
   },
-  "max_time": 30,
+  "max_time": 1,
   "repetitions_per_instance": 1,
-  "output_file": "output.txt",
+  "output_file": "zajecia.txt",
   "progress_bar": true,
   "show_nodes_in_console": false,
-  "measurement_results_in_the_console" : false
+  "measurement_results_in_the_console" : true
 }
